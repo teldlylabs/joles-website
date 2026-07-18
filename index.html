@@ -3,218 +3,566 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Joles — Your family's schedule, sorted in WhatsApp</title>
-<meta name="description" content="Joles keeps your whole family's calendar straight, right inside WhatsApp. Forward a school notice, ask what's on, never chase who's picking up who again.">
+<title>Joles — The family scheduler that lives in WhatsApp</title>
+<meta name="description" content="Joles keeps your family's ever-changing schedule straight, right inside WhatsApp. Forward the Parents Gateway notice, snap the tuition timetable, and just ask what's on — in English or 中文.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #2b2b33;
+  --ink-soft: #5c5c66;
+  --white: #ffffff;
+  --mint: #e3f6ea;
+  --butter: #fff3d6;
+  --sky: #e2eeff;
+  --blush: #ffe7e2;
+  --lilac: #efe6ff;
+  --green: #128c4a;
+  --green-dark: #0e6f3b;
+  --wa-green: #25d366;
+  --wa-sent: #d9fdd3;
+  --wa-bg: #efeae2;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --display: "Baloo 2", system-ui, sans-serif;
+  --body: "Nunito", system-ui, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+body {
+  font-family: var(--body);
+  color: var(--ink);
+  background: var(--white);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #f0f0f0;
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 24px; max-width: 1080px; margin: 0 auto;
+}
+.logo {
+  font-family: var(--display); font-weight: 700; font-size: 26px;
+  color: var(--ink); text-decoration: none; letter-spacing: -0.5px;
+}
+.logo span { color: var(--green); }
+.nav-links { display: flex; align-items: center; gap: 26px; }
+.nav-links a {
+  color: var(--ink-soft); text-decoration: none; font-weight: 600; font-size: 15px;
+}
+.nav-links a:hover { color: var(--ink); }
+.btn {
+  display: inline-block; background: var(--green); color: #fff;
+  font-family: var(--display); font-weight: 600; font-size: 16px;
+  padding: 11px 22px; border-radius: 999px; text-decoration: none;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.btn:hover { background: var(--green-dark); transform: translateY(-1px); }
+.btn:focus-visible, a:focus-visible { outline: 3px solid #9fd8b8; outline-offset: 2px; }
+.btn-big { font-size: 18px; padding: 14px 30px; }
+@media (max-width: 640px) { .nav-links a:not(.btn) { display: none; } }
+
+/* ---------- Hero ---------- */
+.hero { padding: 72px 0 40px; }
+.hero-grid {
+  display: grid; grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px; align-items: center;
+}
+.eyebrow {
+  display: inline-block; font-weight: 700; font-size: 14px;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--green);
+  background: var(--mint); padding: 6px 14px; border-radius: 999px; margin-bottom: 20px;
+}
+h1 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(38px, 5.4vw, 58px); line-height: 1.12;
+  letter-spacing: -1px; margin-bottom: 20px;
+}
+h1 em { font-style: normal; color: var(--green); }
+.hero p.lede {
+  font-size: 19px; color: var(--ink-soft); max-width: 520px; margin-bottom: 30px;
+}
+.hero-ctas { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.hero-note { font-size: 14px; color: var(--ink-soft); margin-top: 14px; }
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero { padding-top: 48px; }
+}
+
+/* ---------- WhatsApp phone mockup ---------- */
+.phone {
+  width: 100%; max-width: 360px; margin: 0 auto;
+  background: #111; border-radius: 40px; padding: 10px;
+  box-shadow: 0 24px 60px rgba(40, 60, 50, 0.18);
+}
+.phone-screen {
+  background: var(--wa-bg); border-radius: 32px; overflow: hidden;
+  display: flex; flex-direction: column; min-height: 480px;
+}
+.wa-header {
+  background: #fff; padding: 12px 14px; display: flex; align-items: center; gap: 10px;
+  border-bottom: 1px solid #eee;
+}
+.wa-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--wa-green); color: #fff;
+  font-family: var(--display); font-weight: 700; font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+}
+.wa-name { font-weight: 700; font-size: 15px; line-height: 1.2; }
+.wa-status { font-size: 12px; color: #7a7a7a; }
+.wa-chat {
+  padding: 16px 12px; display: flex; flex-direction: column; gap: 8px; flex: 1;
+}
+.bubble {
+  max-width: 84%; padding: 8px 12px; border-radius: 12px;
+  font-size: 13.5px; line-height: 1.45; position: relative;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.06);
+  white-space: pre-line;
+}
+.bubble .time {
+  display: inline-block; font-size: 10.5px; color: #8a9a8f;
+  float: right; margin: 6px -2px -2px 8px;
+}
+.sent { background: var(--wa-sent); align-self: flex-end; border-top-right-radius: 3px; }
+.recv { background: #fff; align-self: flex-start; border-top-left-radius: 3px; }
+.sent .time::after { content: " ✓✓"; color: #53bdeb; }
+.voice-note {
+  display: flex; align-items: center; gap: 8px; min-width: 190px;
+}
+.voice-mic { font-size: 18px; }
+.voice-wave {
+  flex: 1; height: 22px; border-radius: 4px;
+  background: repeating-linear-gradient(90deg, #7bc98f 0 3px, transparent 3px 6px);
+  opacity: 0.85;
+}
+.voice-len { font-size: 11.5px; color: #6a7a6f; }
+.photo-bubble .photo-box {
+  background: linear-gradient(135deg, #cfe3d6, #a8cdb6);
+  border-radius: 8px; height: 96px; margin-bottom: 6px;
+  display: flex; align-items: center; justify-content: center;
+  color: #3c5a48; font-weight: 700; font-size: 13px; gap: 6px;
+}
+.chat-caption { font-size: 12px; color: #6a7a6f; }
+
+/* ---------- How it works ---------- */
+.section { padding: 72px 0; }
+h2 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(30px, 4vw, 42px); line-height: 1.15;
+  letter-spacing: -0.6px; margin-bottom: 14px;
+}
+.section-intro { font-size: 18px; color: var(--ink-soft); max-width: 620px; margin-bottom: 44px; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.step {
+  background: var(--white); border: 2px solid #f0f0f0;
+  border-radius: var(--radius-lg); padding: 28px 24px;
+}
+.step-num {
+  font-family: var(--display); font-weight: 700; font-size: 15px; color: var(--green);
+  background: var(--mint); width: 34px; height: 34px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+}
+.step h3 { font-family: var(--display); font-weight: 600; font-size: 20px; margin-bottom: 8px; }
+.step p { font-size: 15.5px; color: var(--ink-soft); }
+@media (max-width: 800px) { .steps { grid-template-columns: 1fr; } }
+
+/* ---------- Feature sections ---------- */
+.feature {
+  border-radius: var(--radius-lg);
+  padding: 56px 48px; margin-bottom: 28px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+}
+.feature.flip .feature-copy { order: 2; }
+.feature.flip .feature-visual { order: 1; }
+.feature h3 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(26px, 3.2vw, 34px); line-height: 1.18;
+  letter-spacing: -0.5px; margin-bottom: 12px;
+}
+.feature p { font-size: 16.5px; color: var(--ink-soft); max-width: 440px; }
+.feature p + p { margin-top: 12px; }
+.tint-mint { background: var(--mint); }
+.tint-butter { background: var(--butter); }
+.tint-sky { background: var(--sky); }
+.tint-blush { background: var(--blush); }
+.tint-lilac { background: var(--lilac); }
+.feature .phone { max-width: 320px; }
+.feature .phone-screen { min-height: 420px; }
+@media (max-width: 860px) {
+  .feature { grid-template-columns: 1fr; padding: 40px 24px; gap: 32px; }
+  .feature.flip .feature-copy { order: 1; }
+  .feature.flip .feature-visual { order: 2; }
+}
+
+/* ---------- Also built in ---------- */
+.mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.mini {
+  border: 2px solid #f0f0f0; border-radius: var(--radius-lg); padding: 26px 24px;
+}
+.mini h4 { font-family: var(--display); font-weight: 600; font-size: 19px; margin-bottom: 8px; }
+.mini p { font-size: 15px; color: var(--ink-soft); margin-bottom: 14px; }
+.mini-chat { display: flex; flex-direction: column; gap: 6px; }
+.mini-chat .bubble { font-size: 12.5px; max-width: 100%; }
+@media (max-width: 800px) { .mini-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Trust + CTA ---------- */
+.trust {
+  text-align: center; padding: 20px 0 0;
+  font-size: 15px; color: var(--ink-soft);
+}
+.cta-section {
+  background: var(--ink); color: #fff;
+  border-radius: var(--radius-lg); padding: 64px 48px; text-align: center;
+  margin: 40px 0 72px;
+}
+.cta-section h2 { color: #fff; margin-bottom: 12px; }
+.cta-section p { color: #c9c9d1; font-size: 18px; max-width: 520px; margin: 0 auto 28px; }
+.cta-section .btn { background: var(--wa-green); color: #073d24; }
+.cta-section .btn:hover { background: #1fbf5b; }
+
+/* ---------- Footer ---------- */
+footer {
+  border-top: 1px solid #f0f0f0; padding: 28px 0 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 14px; font-size: 14.5px; color: var(--ink-soft);
+}
+footer a { color: var(--ink-soft); text-decoration: none; margin-left: 20px; font-weight: 600; }
+footer a:hover { color: var(--ink); }
+</style>
 </head>
 <body>
 
-<header class="site-nav">
-  <div class="wrap">
-    <a class="logo" href="/">Joles</a>
-    <nav class="nav-links">
-      <a class="muted" href="#features">Features</a>
-      <a class="muted" href="#how-it-works">How it works</a>
-      <a class="muted" href="pricing.html">Pricing</a>
-      <a class="btn btn-primary" href="mailto:hello@teldlylabs.com?subject=Requesting%20Joles%20Access">Request Access</a>
-    </nav>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="/">Jo<span>les</span></a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a class="btn" href="mailto:hello@teldlylabs.com">Request a beta invite</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">For Singapore families · Lives in WhatsApp</span>
+      <h1>School, tuition, CCA, enrichment — and half of it <em>changed this week.</em></h1>
+      <p class="lede">Joles keeps your family's ever-shifting schedule straight, right inside WhatsApp. Forward the Parents Gateway notice, snap the tuition timetable, and just ask what's on — in English or 中文.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-big" href="mailto:hello@teldlylabs.com">Request a beta invite</a>
+      </div>
+      <p class="hero-note">Currently in private beta with real Singapore families.</p>
+    </div>
+    <div class="hero-visual">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="wa-header">
+            <div class="wa-avatar">J</div>
+            <div>
+              <div class="wa-name">Joles</div>
+              <div class="wa-status">online</div>
+            </div>
+          </div>
+          <div class="wa-chat">
+            <div class="bubble sent">Emma has P5 supplementary class Thursdays 2.30pm from next week<span class="time">7:42 pm</span></div>
+            <div class="bubble recv">Got it — add "P5 Supplementary Class" for Emma, every Thursday 2:30pm starting 23 Jul?
+
+Reply <b>yes</b> to confirm.<span class="time">7:42 pm</span></div>
+            <div class="bubble sent">yes<span class="time">7:43 pm</span></div>
+            <div class="bubble recv">Added ✓ Dad's been notified.<span class="time">7:43 pm</span></div>
+            <div class="bubble sent">what's on for Ashton tmr?<span class="time">7:44 pm</span></div>
+            <div class="bubble recv">Tomorrow — Tue 21 Jul
+<b>Ashton</b>
+• 3pm Softball training @ RI<span class="time">7:44 pm</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
-<section class="hero" style="border-top:none; padding-top: 88px;">
-  <div class="wrap">
+<!-- ================= HOW IT WORKS ================= -->
+<section class="section wrap" id="how">
+  <h2>No app to install. No calendar to maintain.</h2>
+  <p class="section-intro">Joles is a WhatsApp contact your whole family messages — the same way you already message each other.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Message it like you'd message anyone</h3>
+      <p>Forward the Parents Gateway notice, screenshot the ClassDojo update, snap the tuition timetable, or just type "Ashton's swim class moved to 4pm Sat."</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>It keeps everything straight</h3>
+      <p>Joles reads it, pulls out the dates and details, and asks you to confirm before anything goes on the calendar. Nothing gets added behind your back.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Everyone stays in sync</h3>
+      <p>When one parent adds or changes something, the other hears about it. Every evening, everyone gets tomorrow's schedule — before it's tomorrow.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="section wrap" id="features" style="padding-top: 24px;">
+
+  <!-- 1. Extraction -->
+  <div class="feature tint-mint">
+    <div class="feature-copy">
+      <h3>Snap the notice. Skip the typing.</h3>
+      <p>Parents Gateway consent forms, ClassDojo announcements, CCA schedules, tuition centre timetables — send the photo or PDF and Joles pulls out every date, time and venue for you.</p>
+      <p>It shows you what it found, you reply once, and it's all on the calendar.</p>
+    </div>
+    <div class="feature-visual">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="wa-header">
+            <div class="wa-avatar">J</div>
+            <div><div class="wa-name">Joles</div><div class="wa-status">online</div></div>
+          </div>
+          <div class="wa-chat">
+            <div class="bubble sent photo-bubble">
+              <div class="photo-box">📄 CCA Schedule.pdf</div>
+              <span class="chat-caption">from Parents Gateway</span>
+              <span class="time">2:15 pm</span>
+            </div>
+            <div class="bubble recv">Found 3 events for Ashton:
+
+1. Softball training — Tue 21 Jul, 3pm @ RI
+2. Softball training — Fri 24 Jul, 3pm @ RI
+3. C Div match vs MSHS — Thu 30 Jul, 3pm
+
+Reply <b>all</b> to add all three.<span class="time">2:15 pm</span></div>
+            <div class="bubble sent">all<span class="time">2:16 pm</span></div>
+            <div class="bubble recv">Added all 3 ✓<span class="time">2:16 pm</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Voice -->
+  <div class="feature tint-butter flip">
+    <div class="feature-copy">
+      <h3>Say it. Don't type it.</h3>
+      <p>Driving to pickup? Hands full at the hawker centre? Send a voice note — in English or Chinese — and Joles handles it like a typed message.</p>
+    </div>
+    <div class="feature-visual">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="wa-header">
+            <div class="wa-avatar">J</div>
+            <div><div class="wa-name">Joles</div><div class="wa-status">online</div></div>
+          </div>
+          <div class="wa-chat">
+            <div class="bubble sent">
+              <div class="voice-note">
+                <span class="voice-mic">🎤</span>
+                <span class="voice-wave"></span>
+                <span class="voice-len">0:06</span>
+              </div>
+              <span class="time">5:31 pm</span>
+            </div>
+            <div class="bubble recv">Got it — dental appointment for Emma, next Wed 3pm at Wheelock Place. Add it?<span class="time">5:31 pm</span></div>
+            <div class="bubble sent">yes<span class="time">5:32 pm</span></div>
+            <div class="bubble recv">Added ✓ Mom's been notified.<span class="time">5:32 pm</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Evening digest -->
+  <div class="feature tint-sky">
+    <div class="feature-copy">
+      <h3>Tomorrow, sorted by 8 tonight.</h3>
+      <p>Every evening, Joles sends each parent tomorrow's schedule — who has what, when, and where. No morning scramble, no "wait, is tuition today?"</p>
+      <p>Each family member can pick their own digest time.</p>
+    </div>
+    <div class="feature-visual">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="wa-header">
+            <div class="wa-avatar">J</div>
+            <div><div class="wa-name">Joles</div><div class="wa-status">online</div></div>
+          </div>
+          <div class="wa-chat">
+            <div class="bubble recv">🌙 <b>Tomorrow — Thu 23 Jul</b>
+
+<b>Ashton</b>
+• 3pm Softball training @ RI
+
+<b>Emma</b>
+• 2:30pm P5 Supplementary Class
+• 5pm Piano lesson
+
+Reply anytime to make changes.<span class="time">8:00 pm</span></div>
+            <div class="bubble sent">move Emma's piano to 5.30<span class="time">8:04 pm</span></div>
+            <div class="bubble recv">Move "Piano lesson" (Emma) tomorrow from 5pm to 5:30pm? Reply <b>yes</b> to confirm.<span class="time">8:04 pm</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Co-parent -->
+  <div class="feature tint-blush flip">
+    <div class="feature-copy">
+      <h3>Both parents. Always in the loop.</h3>
+      <p>When Dad moves the dental appointment, Mom finds out from Joles — not at the clinic. Every add, change and cancellation reaches the other parent automatically.</p>
+      <p>No more "you never told me."</p>
+    </div>
+    <div class="feature-visual">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="wa-header">
+            <div class="wa-avatar">J</div>
+            <div><div class="wa-name">Joles</div><div class="wa-status">online</div></div>
+          </div>
+          <div class="wa-chat">
+            <div class="bubble recv">Heads up — <b>Dad</b> moved Emma's dental appointment to Thu 4pm @ Wheelock Place.<span class="time">1:20 pm</span></div>
+            <div class="bubble recv">Heads up — <b>Mom</b> added "Swim class" for Ashton, Sat 9am @ Serangoon Swimming Complex.<span class="time">3:45 pm</span></div>
+            <div class="bubble sent">who's taking him?<span class="time">3:47 pm</span></div>
+            <div class="bubble recv">That's one for the family group chat 😄 — but I've got the schedule covered.<span class="time">3:47 pm</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Whole household -->
+  <div class="feature tint-lilac">
+    <div class="feature-copy">
+      <h3>One calendar for the household. Not one person.</h3>
+      <p>Google and Apple calendars were built for one person's meetings. Joles was built for a family — every event belongs to someone, and you ask about people, not time slots.</p>
+      <p>"What's on for Emma this week?" "Is Ashton free Saturday?" Joles knows exactly who you mean.</p>
+    </div>
+    <div class="feature-visual">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="wa-header">
+            <div class="wa-avatar">J</div>
+            <div><div class="wa-name">Joles</div><div class="wa-status">online</div></div>
+          </div>
+          <div class="wa-chat">
+            <div class="bubble sent">what's on for the kids this weekend?<span class="time">9:02 pm</span></div>
+            <div class="bubble recv"><b>Sat 25 Jul</b>
+• 9am Swim class (Ashton)
+• 10am Piano lesson (Emma)
+• 12pm–3pm Berries (Emma) @ Bishan
+
+<b>Sun 26 Jul</b>
+• 6pm–7:30pm Ballet (Emma) @ Serangoon North CC<span class="time">9:02 pm</span></div>
+            <div class="bubble sent">is Ashton free sat afternoon?<span class="time">9:03 pm</span></div>
+            <div class="bubble recv">Yes — Ashton's only got swim class at 9am. Saturday afternoon is clear.<span class="time">9:03 pm</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Chinese -->
+  <div class="feature tint-mint flip">
+    <div class="feature-copy">
+      <h3>English or 中文 — Joles speaks both.</h3>
+      <p>Grandparents helping with pickup? Helper managing the weekday runs? Anyone in the household can message Joles in Chinese and get replies in Chinese — no settings to change, it just follows the language you use.</p>
+    </div>
+    <div class="feature-visual">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="wa-header">
+            <div class="wa-avatar">J</div>
+            <div><div class="wa-name">Joles</div><div class="wa-status">online</div></div>
+          </div>
+          <div class="wa-chat">
+            <div class="bubble sent">取消Emma星期六的钢琴课<span class="time">4:12 pm</span></div>
+            <div class="bubble recv">好的 — 取消本周六 Emma 的钢琴课（10am）？
+
+回复 <b>是</b> 确认。<span class="time">4:12 pm</span></div>
+            <div class="bubble sent">是<span class="time">4:13 pm</span></div>
+            <div class="bubble recv">已取消 ✓ 已通知 Dad。<span class="time">4:13 pm</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Also built in -->
+  <h2 style="margin-top: 44px;">Also built in</h2>
+  <p class="section-intro">The small things that make a scheduler trustworthy.</p>
+  <div class="mini-grid">
+    <div class="mini">
+      <h4>Clash warnings</h4>
+      <p>Joles checks for overlaps before anything goes on the calendar.</p>
+      <div class="mini-chat">
+        <div class="bubble sent">add badminton for Ashton sat 10am</div>
+        <div class="bubble recv">⚠️ Heads up — that clashes with Ashton's swim class (Sat 9–10:30am). Still add it?</div>
+      </div>
+    </div>
+    <div class="mini">
+      <h4>Undo anything</h4>
+      <p>Deleted the wrong thing? One word brings it back.</p>
+      <div class="mini-chat">
+        <div class="bubble sent">undo</div>
+        <div class="bubble recv">Restored "Piano lesson" (Emma), Sat 10am ✓</div>
+      </div>
+    </div>
+    <div class="mini">
+      <h4>Month view, one tap</h4>
+      <p>Ask for the calendar and get a private link to the whole month at a glance.</p>
+      <div class="mini-chat">
+        <div class="bubble sent">show me the calendar</div>
+        <div class="bubble recv">Here's your family calendar 📅
+joles.link/cal/…</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="trust">Built in Singapore 🇸🇬 · Your family's data stays yours · PDPA-compliant</p>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="wrap">
+  <div class="cta-section">
+    <h2>Less juggling. More knowing.</h2>
+    <p>Joles is in private beta with Singapore families right now. Want in? Drop us a note and we'll set your household up.</p>
+    <a class="btn btn-big" href="mailto:hello@teldlylabs.com">Request a beta invite</a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<div class="wrap">
+  <footer>
+    <div>© 2026 Teldly Labs · Singapore</div>
     <div>
-      <span class="eyebrow">For families juggling everyone's everything</span>
-      <h1>Forward it to Joles.<br>Everyone's calendar, <em>sorted.</em></h1>
-      <p class="lede">School notices, tuition schedules, grandma's clinic appointment — send it in WhatsApp, and Joles keeps the whole family's calendar straight. No new app. No forgetting who's picking up who.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="mailto:hello@teldlylabs.com?subject=Requesting%20Joles%20Access">Request Access</a>
-        <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
-      </div>
-      <p class="hero-note" style="margin-top: 22px;">Currently onboarding a small group of Singapore families.</p>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="mailto:hello@teldlylabs.com">Contact</a>
     </div>
-
-    <div class="phone">
-      <div class="phone-header">
-        <div class="phone-avatar">J</div>
-        <div>
-          <div class="who">Joles</div>
-          <div class="status">online</div>
-        </div>
-      </div>
-      <div class="thread">
-        <div class="bubble out file">
-          <div class="file-icon">PDF</div>
-          <div>MTLS_2026_pamphlet.pdf<br><span style="opacity:0.85; font-size: 0.85em;">"Add this for Jeanette"</span></div>
-        </div>
-        <div class="bubble in">
-          Got it — 1 Aug 2026 Sat, Mother Tongue Languages Symposium 2026 @ Singapore Expo Hall 2B
-        </div>
-        <div class="bubble in confirm">
-          Add it?
-          <div class="confirm-actions"><span class="yes">Yes</span><span>No</span></div>
-        </div>
-        <div class="bubble out">Yes</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="how-it-works">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">How it works</span>
-      <h2>Three steps, no setup calls</h2>
-      <p>There's no app to install and no dashboard to learn. Everything happens in the WhatsApp thread you already have open.</p>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="num">01</div>
-        <h3>Message it like you'd message anyone</h3>
-        <p>A note, a school notice, a photo of a form on the fridge — send it to Joles the way you'd send it to your spouse.</p>
-      </div>
-      <div class="step">
-        <div class="num">02</div>
-        <h3>It learns your household</h3>
-        <p>Add family members once. Joles tracks who's who, what belongs to which child, and who needs to know about what.</p>
-      </div>
-      <div class="step">
-        <div class="num">03</div>
-        <h3>Daily digests, right on time</h3>
-        <p>A short WhatsApp message each morning with what's happening — no logging into anything to check.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="features">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">What it does</span>
-      <h2>Send it any way that's natural. Joles handles the rest.</h2>
-      <p>You don't format anything for Joles. You just send what you'd normally send — a photo, a voice note, a quick text — and it turns into a real calendar entry.</p>
-    </div>
-    <div class="features-grid">
-
-      <div class="feature-card">
-        <div class="feature-visual mv-extract">
-          <div class="src">PDF</div>
-          <span class="arrow">&#8594;</span>
-          <div class="out-pill">1 Aug, Symposium 2026</div>
-        </div>
-        <h3>Photo &amp; PDF extraction</h3>
-        <p>Snap a school notice, forward a PDF, or screenshot a poster. Joles reads it and pulls out the date, time, and place.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-visual mv-voice">
-          <div class="bar" style="height: 14px;"></div>
-          <div class="bar" style="height: 28px;"></div>
-          <div class="bar" style="height: 40px;"></div>
-          <div class="bar" style="height: 22px;"></div>
-          <div class="bar" style="height: 34px;"></div>
-          <div class="bar" style="height: 16px;"></div>
-          <div class="bar" style="height: 26px;"></div>
-        </div>
-        <h3>Voice notes</h3>
-        <p>Talking is often faster than typing. Send a voice note the way you'd tell your spouse — Joles transcribes and schedules it.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-visual mv-digest">
-          <div class="time">8:00 AM</div>
-          <div class="line">You have 3 update(s) for today, incl. Ethan's dentist at 4pm.</div>
-        </div>
-        <h3>Daily digests</h3>
-        <p>One short message each morning with what's ahead — no opening an app to check what's happening today.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-visual mv-lang">
-          <span class="active">EN</span>
-          <span>中文</span>
-        </div>
-        <h3>English &amp; Chinese</h3>
-        <p>Message Joles in whichever language is natural — it replies the same way, no settings to change.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-visual mv-coparent">
-          <div class="av a">M</div>
-          <div class="av b">D</div>
-          <div class="check">Both notified</div>
-        </div>
-        <h3>Co-parent notifications</h3>
-        <p>Add an event and both parents see it. Nobody finds out about the recital from a group chat three days later.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-visual mv-conflict">
-          <div class="pill a">3:30pm — Piano lesson</div>
-          <div class="pill b">4:00pm — Swim class</div>
-        </div>
-        <h3>Conflict detection</h3>
-        <p>If two things overlap, Joles flags it before it becomes a problem, not after someone's already double-booked.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="who-its-for">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Who it's for</span>
-      <h2>Built for the household that runs on three generations and two languages</h2>
-    </div>
-    <div class="trust-grid">
-      <div class="trust-card">
-        <h3>Grandparents don't need to download anything</h3>
-        <p>If they already use WhatsApp to see photos of the grandkids, they can already use Joles. No new account, no new app, no new password to forget.</p>
-      </div>
-      <div class="trust-card">
-        <h3>Works in English and Chinese</h3>
-        <p>Message Joles in whichever language is natural to you — replies come back the same way.</p>
-      </div>
-      <div class="trust-card">
-        <h3>One inbox for school, tuition, and family life</h3>
-        <p>Kids' school notices, enrichment schedules, medical appointments — one place, instead of scattered across five different chats.</p>
-      </div>
-      <div class="trust-card">
-        <h3>Your data stays your family's</h3>
-        <p>Joles is built by Teldly Labs, a Singapore-registered business. Read our <a href="privacy.html" style="text-decoration: underline;">Privacy Policy</a> for exactly what's collected and why.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="pricing-teaser">
-      <div>
-        <h2>Simple pricing, two plans</h2>
-        <p>Family Standard covers everyone's day-to-day. Family Max adds voice notes, task tracking, and unlimited family members.</p>
-      </div>
-      <a class="btn btn-primary" href="pricing.html">See pricing</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <a class="logo" href="/" style="font-size: 1.15rem;">Joles</a>
-    <div class="foot-links">
-      <a href="pricing.html">Pricing</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="mailto:hello@teldlylabs.com">hello@teldlylabs.com</a>
-    </div>
-    <div class="copyright">© 2026 Teldly Labs</div>
-  </div>
-</footer>
+  </footer>
+</div>
 
 </body>
 </html>
