@@ -6,22 +6,82 @@
 <title>Privacy Policy — Joles</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #2b2b33; --ink-soft: #5c5c66; --white: #ffffff;
+  --mint: #e3f6ea; --green: #128c4a; --green-dark: #0e6f3b;
+  --display: "Baloo 2", system-ui, sans-serif;
+  --body: "Nunito", system-ui, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--body); color: var(--ink); background: var(--white);
+  font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,0.88); backdrop-filter: blur(10px);
+  border-bottom: 1px solid #f0f0f0;
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 24px; max-width: 1080px; margin: 0 auto;
+}
+.logo {
+  font-family: var(--display); font-weight: 700; font-size: 26px;
+  color: var(--ink); text-decoration: none; letter-spacing: -0.5px;
+}
+.logo span { color: var(--green); }
+.nav-links { display: flex; align-items: center; gap: 26px; }
+.nav-links a { color: var(--ink-soft); text-decoration: none; font-weight: 600; font-size: 15px; }
+.nav-links a:hover { color: var(--ink); }
+.btn {
+  display: inline-block; background: var(--green); color: #fff;
+  font-family: var(--display); font-weight: 600; font-size: 16px;
+  padding: 11px 22px; border-radius: 999px; text-decoration: none;
+  transition: background 0.15s ease;
+}
+.btn:hover { background: var(--green-dark); }
+.btn:focus-visible, a:focus-visible { outline: 3px solid #9fd8b8; outline-offset: 2px; }
+@media (max-width: 640px) { .nav-links a:not(.btn) { display: none; } }
+.legal { padding: 56px 0 80px; max-width: 74ch; margin: 0 auto; }
+.legal h1 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(32px, 4.5vw, 44px); letter-spacing: -0.6px; margin-bottom: 10px;
+}
+.legal .updated { color: var(--ink-soft); font-size: 15px; margin-bottom: 40px; }
+.legal h2 {
+  font-family: var(--display); font-weight: 600;
+  font-size: 22px; margin: 40px 0 10px;
+}
+.legal p, .legal li { color: var(--ink-soft); font-size: 16px; }
+.legal p { margin-bottom: 12px; }
+.legal ul { padding-left: 22px; margin-bottom: 12px; }
+.legal li { margin-bottom: 6px; }
+.legal a { color: var(--green); }
+footer {
+  border-top: 1px solid #f0f0f0; padding: 28px 0 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 14px; font-size: 14.5px; color: var(--ink-soft);
+}
+footer a { color: var(--ink-soft); text-decoration: none; margin-left: 20px; font-weight: 600; }
+footer a:hover { color: var(--ink); }
+</style>
 </head>
 <body>
 
-<header class="site-nav">
-  <div class="wrap">
-    <a class="logo" href="/">Joles</a>
-    <nav class="nav-links">
-      <a class="muted" href="index.html#features">Features</a>
-      <a class="muted" href="index.html#how-it-works">How it works</a>
-      <a class="muted" href="pricing.html">Pricing</a>
-      <a class="btn btn-primary" href="mailto:hello@teldlylabs.com?subject=Requesting%20Joles%20Access">Request Access</a>
-    </nav>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="/">Jo<span>les</span></a>
+    <div class="nav-links">
+      <a href="/#how">How it works</a>
+      <a href="/#features">Features</a>
+      <a class="btn" href="mailto:hello@teldlylabs.com">Request a beta invite</a>
+    </div>
   </div>
-</header>
+</nav>
 
 <div class="wrap">
 <div class="legal">
@@ -103,18 +163,16 @@
 </div>
 </div>
 
-<footer>
-  <div class="wrap">
-    <a class="logo" href="/" style="font-size: 1.15rem;">Joles</a>
-    <div class="foot-links">
-      <a href="pricing.html">Pricing</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="mailto:hello@teldlylabs.com">hello@teldlylabs.com</a>
+<div class="wrap">
+  <footer>
+    <div>© 2026 Teldly Labs · Singapore</div>
+    <div>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="mailto:hello@teldlylabs.com">Contact</a>
     </div>
-    <div class="copyright">© 2026 Teldly Labs</div>
-  </div>
-</footer>
+  </footer>
+</div>
 
 </body>
 </html>
