@@ -98,7 +98,7 @@ h1 {
 }
 h1 em { font-style: normal; color: var(--green); }
 .hero p.lede {
-  font-size: 19px; color: var(--ink-soft); max-width: 520px; margin-bottom: 30px;
+  font-size: 29px; color: var(--ink-soft); max-width: 620px; margin-bottom: 30px;
 }
 .hero-ctas { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
 .hero-note { font-size: 14px; color: var(--ink-soft); margin-top: 14px; }
@@ -163,6 +163,30 @@ h1 em { font-style: normal; color: var(--green); }
 }
 .chat-caption { font-size: 12px; color: #6a7a6f; }
 
+.bubble { animation: bubbleIn 0.35s ease; }
+@keyframes bubbleIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+.hero-visual .wa-chat {
+  max-height: 420px; overflow-y: auto; scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.hero-visual .wa-chat::-webkit-scrollbar { display: none; }
+
+.typing-bubble {
+  display: inline-flex; gap: 4px; align-items: center;
+  padding: 11px 14px; align-self: flex-start;
+}
+.typing-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: #9aa79f;
+  animation: typingBounce 1s infinite ease-in-out;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.15s; }
+.typing-dot:nth-child(3) { animation-delay: 0.3s; }
+@keyframes typingBounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.5; }
+  40% { transform: translateY(-4px); opacity: 1; }
+}
+
 /* ---------- How it works ---------- */
 .section { padding: 72px 0; }
 h2 {
@@ -170,7 +194,7 @@ h2 {
   font-size: clamp(30px, 4vw, 42px); line-height: 1.15;
   letter-spacing: -0.6px; margin-bottom: 14px;
 }
-.section-intro { font-size: 18px; color: var(--ink-soft); max-width: 620px; margin-bottom: 44px; }
+.section-intro { font-size: 27px; color: var(--ink-soft); max-width: 720px; margin-bottom: 44px; }
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .step {
   background: var(--white); border: 2px solid #f0f0f0;
@@ -181,8 +205,8 @@ h2 {
   background: var(--mint); width: 34px; height: 34px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
 }
-.step h3 { font-family: var(--display); font-weight: 600; font-size: 20px; margin-bottom: 8px; }
-.step p { font-size: 15.5px; color: var(--ink-soft); }
+.step h3 { font-family: var(--display); font-weight: 600; font-size: 30px; margin-bottom: 8px; }
+.step p { font-size: 23px; color: var(--ink-soft); }
 @media (max-width: 800px) { .steps { grid-template-columns: 1fr; } }
 
 /* ---------- Feature sections ---------- */
@@ -198,7 +222,7 @@ h2 {
   font-size: clamp(26px, 3.2vw, 34px); line-height: 1.18;
   letter-spacing: -0.5px; margin-bottom: 12px;
 }
-.feature p { font-size: 16.5px; color: var(--ink-soft); max-width: 440px; }
+.feature p { font-size: 25px; color: var(--ink-soft); max-width: 540px; }
 .feature p + p { margin-top: 12px; }
 .tint-mint { background: var(--mint); }
 .tint-butter { background: var(--butter); }
@@ -218,8 +242,8 @@ h2 {
 .mini {
   border: 2px solid #f0f0f0; border-radius: var(--radius-lg); padding: 26px 24px;
 }
-.mini h4 { font-family: var(--display); font-weight: 600; font-size: 19px; margin-bottom: 8px; }
-.mini p { font-size: 15px; color: var(--ink-soft); margin-bottom: 14px; }
+.mini h4 { font-family: var(--display); font-weight: 600; font-size: 29px; margin-bottom: 8px; }
+.mini p { font-size: 23px; color: var(--ink-soft); margin-bottom: 14px; }
 .mini-chat { display: flex; flex-direction: column; gap: 6px; }
 .mini-chat .bubble { font-size: 12.5px; max-width: 100%; }
 @media (max-width: 800px) { .mini-grid { grid-template-columns: 1fr; } }
@@ -227,7 +251,7 @@ h2 {
 /* ---------- Trust + CTA ---------- */
 .trust {
   text-align: center; padding: 20px 0 0;
-  font-size: 15px; color: var(--ink-soft);
+  font-size: 23px; color: var(--ink-soft);
 }
 .cta-section {
   background: var(--ink); color: #fff;
@@ -235,7 +259,7 @@ h2 {
   margin: 40px 0 72px;
 }
 .cta-section h2 { color: #fff; margin-bottom: 12px; }
-.cta-section p { color: #c9c9d1; font-size: 18px; max-width: 520px; margin: 0 auto 28px; }
+.cta-section p { color: #c9c9d1; font-size: 27px; max-width: 620px; margin: 0 auto 28px; }
 .cta-section .btn { background: var(--wa-green); color: #073d24; }
 .cta-section .btn:hover { background: #1fbf5b; }
 
@@ -266,9 +290,9 @@ footer a:hover { color: var(--ink); }
 <header class="hero wrap">
   <div class="hero-grid">
     <div>
-      <span class="eyebrow">Built by parents, for parents</span>
-      <h1>School, tuition, CCAs, enrichment, family events — juggling the schedule and its changes is a headache <em>every Singaporean parent</em> can relate to!</h1>
-      <p class="lede">Well, now with Joles — your WhatsApp-based family scheduler — it's no longer an issue. Text in, send a voice note, or simply forward that Parents Gateway notice and let Joles do the scheduling for you — in English or 中文!</p>
+      <span class="eyebrow">Built by parents for parents</span>
+      <h1><em>School, tuition, CCAs, enrichment, family events</em> — juggling the schedule and its changes is a headache every Singaporean parent can relate to!</h1>
+      <p class="lede">Joles, your WhatsApp-based family scheduler, is here to help! Text, send a voice note, or simply snap a screenshot of that Parents Gateway notice and let Joles do the scheduling for you — in English or 中文!</p>
       <div class="hero-ctas">
         <a class="btn btn-big" href="mailto:hello@teldlylabs.com">Request a beta invite</a>
       </div>
@@ -283,18 +307,7 @@ footer a:hover { color: var(--ink); }
               <div class="wa-status">online</div>
             </div>
           </div>
-          <div class="wa-chat">
-            <div class="bubble sent">Emma has P5 supplementary class Thursdays 2.30pm from next week<span class="time">7:42 pm</span></div>
-            <div class="bubble recv">Got it — add "P5 Supplementary Class" for Emma, every Thursday 2:30pm starting 23 Jul?
-
-Reply <b>yes</b> to confirm.<span class="time">7:42 pm</span></div>
-            <div class="bubble sent">yes<span class="time">7:43 pm</span></div>
-            <div class="bubble recv">Added ✓ Dad's been notified.<span class="time">7:43 pm</span></div>
-            <div class="bubble sent">what's on for Ashton tmr?<span class="time">7:44 pm</span></div>
-            <div class="bubble recv">Tomorrow — Tue 21 Jul
-<b>Ashton</b>
-• 3pm Soccer training @ School Field<span class="time">7:44 pm</span></div>
-          </div>
+          <div class="wa-chat" id="heroChat" aria-live="polite"></div>
         </div>
       </div>
     </div>
@@ -349,8 +362,8 @@ Reply <b>yes</b> to confirm.<span class="time">7:42 pm</span></div>
             </div>
             <div class="bubble recv">Found 3 events for Ashton:
 
-1. Soccer training — Tue 21 Jul, 3pm @ RI
-2. Soccer training — Fri 24 Jul, 3pm @ RI
+1. Soccer training — Tue 21 Jul, 3pm @ School field
+2. Soccer training — Fri 24 Jul, 3pm @ School field
 3. 'C' Division NSG match — Thu 30 Jul, 3pm
 
 Reply <b>all</b> to add all three.<span class="time">2:15 pm</span></div>
@@ -563,5 +576,98 @@ joles.link/cal/…</div>
   </footer>
 </div>
 
+<script>
+(function () {
+  var chat = document.getElementById('heroChat');
+  if (!chat) return;
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var script = [
+    { type: 'photo', caption: 'CCA schedule screenshot', from: 'from Parents Gateway', time: '7:40 pm' },
+    { type: 'typing' },
+    { type: 'text', side: 'recv', text: 'Found 2 events for Ashton:\n\n1. Soccer training — Tue 21 Jul, 3pm @ School field\n2. \u2018C\u2019 Division NSG match — Thu 30 Jul, 3pm\n\nReply <b>all</b> to add both.', time: '7:40 pm' },
+    { type: 'text', side: 'sent', text: 'all', time: '7:41 pm' },
+    { type: 'typing' },
+    { type: 'text', side: 'recv', text: 'Added both \u2713 Dad\u2019s been notified.', time: '7:41 pm' },
+    { type: 'text', side: 'sent', text: 'Emma has piano moved to 5.30pm Sat', time: '7:43 pm' },
+    { type: 'typing' },
+    { type: 'text', side: 'recv', text: 'Move "Piano lesson" (Emma) Sat from 5pm to 5:30pm? Reply <b>yes</b> to confirm.', time: '7:43 pm' },
+    { type: 'text', side: 'sent', text: 'yes', time: '7:44 pm' },
+    { type: 'typing' },
+    { type: 'text', side: 'recv', text: 'Updated \u2713', time: '7:44 pm' },
+    { type: 'text', side: 'sent', text: "what's on for Emma next week?", time: '7:45 pm' },
+    { type: 'typing' },
+    { type: 'text', side: 'recv', text: '<b>Emma \u2014 next week</b>\nMon 2:30pm P5 Supplementary Class\nWed 5pm Piano lesson\nSat 10am Ballet @ Thomson', time: '7:45 pm' }
+  ];
+
+  function clearChat() { chat.innerHTML = ''; }
+  function scrollDown() { chat.scrollTop = chat.scrollHeight; }
+
+  function buildBubble(item) {
+    var div = document.createElement('div');
+    if (item.type === 'photo') {
+      div.className = 'bubble sent photo-bubble';
+      div.innerHTML = '<div class="photo-box">\uD83D\uDCF7 ' + item.caption + '</div><span class="chat-caption">' + item.from + '</span><span class="time">' + item.time + '</span>';
+    } else {
+      div.className = 'bubble ' + item.side;
+      div.innerHTML = item.text.replace(/\n/g, '<br>') + '<span class="time">' + item.time + '</span>';
+    }
+    return div;
+  }
+
+  function buildTyping() {
+    var div = document.createElement('div');
+    div.className = 'bubble recv typing-bubble';
+    div.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+    return div;
+  }
+
+  function renderStatic() {
+    clearChat();
+    script.forEach(function (item) {
+      if (item.type === 'typing') return;
+      chat.appendChild(buildBubble(item));
+    });
+    scrollDown();
+  }
+
+  if (reduceMotion) {
+    renderStatic();
+    return;
+  }
+
+  var i = 0;
+  var typingEl = null;
+
+  function step() {
+    if (i >= script.length) {
+      setTimeout(function () {
+        clearChat();
+        i = 0;
+        typingEl = null;
+        setTimeout(step, 500);
+      }, 3200);
+      return;
+    }
+    var item = script[i];
+    if (item.type === 'typing') {
+      typingEl = buildTyping();
+      chat.appendChild(typingEl);
+      scrollDown();
+      i++;
+      setTimeout(step, 900);
+      return;
+    }
+    if (typingEl) { typingEl.remove(); typingEl = null; }
+    chat.appendChild(buildBubble(item));
+    scrollDown();
+    i++;
+    setTimeout(step, item.side === 'sent' ? 700 : 1500);
+  }
+
+  step();
+})();
+</script>
 </body>
 </html>
