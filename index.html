@@ -103,6 +103,10 @@ h1 em { font-style: normal; color: var(--green); }
 }
 .hero-ctas { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
 .hero-note { font-size: 14px; color: var(--ink-soft); margin-top: 14px; }
+.hero-visual-caption {
+  text-align: center; font-size: 15px; font-weight: 600;
+  color: var(--ink-soft); margin-top: 16px;
+}
 @media (max-width: 860px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero { padding-top: 48px; }
@@ -369,8 +373,8 @@ footer a:hover { color: var(--ink); }
   <div class="hero-grid">
     <div>
       <span class="eyebrow">Built by parents for parents</span>
-      <h1><em>School, tuition, CCAs, enrichment, family events</em> — juggling the schedule and its changes is a headache every Singaporean parent can relate to!</h1>
-      <p class="lede">Joles, your WhatsApp-based family scheduler, is here to help! Text, send a voice note, or simply snap a screenshot of that Parents Gateway notice and let Joles do the scheduling for you — in English or 中文!</p>
+      <h1><em>CCAs, school events, tuition &amp; enrichment classes, plus family gatherings.</em> Juggling the family's schedule is a familiar headache for every Singaporean parent.</h1>
+      <p class="lede">Let Joles, your WhatsApp-based family scheduling assistant, help you lighten the load. Simply text, voice note, or snap a screenshot of that Parents Gateway notice and let Joles do the scheduling for you!</p>
       <div class="hero-ctas">
         <a class="btn btn-big" href="https://wa.me/6589911825?text=Hi%20Joles%2C%20I%27d%20like%20to%20get%20started%20with%20my%20family%27s%20schedule%21" target="_blank" rel="noopener">Start your free 14-day trial</a>
       </div>
@@ -388,6 +392,7 @@ footer a:hover { color: var(--ink); }
           <div class="wa-chat" id="heroChat" aria-live="polite"></div>
         </div>
       </div>
+      <p class="hero-visual-caption">Chat in both English or 中文!</p>
     </div>
   </div>
 </header>
@@ -404,8 +409,8 @@ footer a:hover { color: var(--ink); }
     </div>
     <div class="step">
       <div class="step-num">2</div>
-      <h3>It keeps everything straight</h3>
-      <p>Joles reads it, pulls out the dates and details, and asks you to confirm before anything goes on the calendar. Nothing gets added behind your back.</p>
+      <h3>Covers everything — events, tasks, and notes</h3>
+      <p>Add events, track tasks with due dates, and save notices for later — Joles keeps it all sorted and easy to pull up again, whenever you need a reminder or a quick reference.</p>
     </div>
     <div class="step">
       <div class="step-num">3</div>
@@ -483,7 +488,7 @@ Reply <b>all</b> to add all three.<span class="time">2:15 pm</span></div>
   <!-- 2. Voice -->
   <div class="feature tint-butter flip">
     <div class="feature-copy">
-      <h3>Say it. Don't type it.</h3>
+      <h3>Say it. Don't type it. <span class="save-badge">Family Max</span></h3>
       <p>Driving to pickup? Hands full at the hawker centre? Send a voice note — in English or Chinese — and Joles handles it like a typed message.</p>
     </div>
     <div class="feature-visual">
