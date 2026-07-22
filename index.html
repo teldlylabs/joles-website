@@ -37,6 +37,7 @@ html { scroll-behavior: smooth; }
   * { animation: none !important; transition: none !important; }
 }
 
+html, body { overflow-x: hidden; max-width: 100%; }
 body {
   font-family: var(--body);
   color: var(--ink);
@@ -137,6 +138,7 @@ h1 em { font-style: normal; color: var(--green); }
   font-size: 13.5px; line-height: 1.45; position: relative;
   box-shadow: 0 1px 1px rgba(0,0,0,0.06);
   white-space: pre-line;
+  overflow-wrap: anywhere; word-break: break-word;
 }
 .bubble .time {
   display: inline-block; font-size: 10.5px; color: #8a9a8f;
@@ -326,6 +328,26 @@ footer {
 }
 footer a { color: var(--ink-soft); text-decoration: none; margin-left: 20px; font-weight: 600; }
 footer a:hover { color: var(--ink); }
+
+/* ---------- Mobile typography fix ----------
+   Root cause of "stretched" mobile look: several paragraph styles were
+   set at 23-29px (fine on desktop, oversized on a ~375px phone screen --
+   each line wraps to 2-3 words, making the whole page feel blown up /
+   sides-stretched even though nothing is technically overflowing). */
+@media (max-width: 640px) {
+  .hero p.lede { font-size: 19px; }
+  .section-intro { font-size: 18px; }
+  .feature p { font-size: 17px; }
+  .step p { font-size: 17px; }
+  .mini p { font-size: 17px; }
+  .cta-section p { font-size: 18px; }
+  .trust { font-size: 17px; }
+  .step h3 { font-size: 22px; }
+  .mini h4 { font-size: 21px; }
+  .cta-section { padding: 40px 24px; }
+  .feature { padding: 32px 20px; }
+  .wrap { padding: 0 18px; }
+}
 </style>
 </head>
 <body>
@@ -706,7 +728,7 @@ joles.link/cal/…</div>
 <!-- ================= FOOTER ================= -->
 <div class="wrap">
   <footer>
-    <div>© 2026 Teldly Labs · Singapore</div>
+    <div>Joles, powered by Teldly Labs · © 2026 · Singapore</div>
     <div>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
