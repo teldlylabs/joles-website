@@ -370,7 +370,7 @@ footer a:hover { color: var(--ink); }
 <nav class="nav">
   <div class="nav-inner">
     <a class="logo" href="/" aria-label="Joles">
-      <svg id="joles-logo-nav" xmlns="http://www.w3.org/2000/svg" role="img" style="height:44px;width:100px;display:block;">
+      <svg viewBox="0 0 177.36 81.79" style="height:40px;width:auto;display:block;" xmlns="http://www.w3.org/2000/svg" role="img">
         <title>Joles</title>
         <defs>
           <linearGradient id="navlogo-grad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -378,10 +378,10 @@ footer a:hover { color: var(--ink); }
             <stop offset="100%" stop-color="#7bc98f"/>
           </linearGradient>
         </defs>
-        <path class="jl-arc" fill="none" stroke="url(#navlogo-grad)" stroke-width="3" stroke-linecap="round"></path>
-        <circle class="jl-dot1" r="4.5" fill="#0e6f3b"></circle>
-        <circle class="jl-dot2" r="4.5" fill="#7bc98f"></circle>
-        <text class="jl-text" font-family="'Baloo 2', system-ui, sans-serif" font-weight="700" font-size="68" fill="#2b2b33">Jo<tspan fill="#128c4a">les</tspan></text>
+        <path d="M 6.00 57.79 Q 88.68 73.79 171.36 57.79" fill="none" stroke="url(#navlogo-grad)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="6.00" cy="57.79" r="4.5" fill="#0e6f3b"/>
+        <circle cx="171.36" cy="57.79" r="4.5" fill="#7bc98f"/>
+        <text x="11.50" y="50.88" font-family="'Baloo 2', system-ui, sans-serif" font-weight="700" font-size="68" fill="#2b2b33">Jo<tspan fill="#128c4a">les</tspan></text>
       </svg>
     </a>
     <div class="nav-links">
@@ -716,12 +716,12 @@ joles.link/cal/…</div>
   </div>
   <p class="built-note">Built in Singapore 🇸🇬</p>
   <div style="text-align:center; margin: 20px 0 48px;">
-    <svg id="teldly-logo" xmlns="http://www.w3.org/2000/svg" role="img" style="height:52px;width:180px;">
+    <svg viewBox="0 0 220.30 44.66" style="height:44px;width:auto;" xmlns="http://www.w3.org/2000/svg" role="img">
       <title>Teldly Labs</title>
-      <text class="tl-text" font-family="'Baloo 2', system-ui, sans-serif" font-weight="600" font-size="42" fill="#2b2b33" letter-spacing="-0.5">Teldly Labs</text>
-      <circle class="tl-dot1" r="4" fill="#128c4a"></circle>
-      <circle class="tl-dot2" r="4" fill="#128c4a" opacity="0.65"></circle>
-      <circle class="tl-dot3" r="4" fill="#128c4a" opacity="0.35"></circle>
+      <text x="5.08" y="33.64" font-family="'Baloo 2', system-ui, sans-serif" font-weight="600" font-size="42" fill="#2b2b33" letter-spacing="-0.5">Teldly Labs</text>
+      <circle cx="8.00" cy="37.66" r="4" fill="#128c4a"/>
+      <circle cx="22.00" cy="37.66" r="4" fill="#128c4a" opacity="0.65"/>
+      <circle cx="36.00" cy="37.66" r="4" fill="#128c4a" opacity="0.35"/>
     </svg>
   </div>
 </section>
@@ -997,78 +997,6 @@ joles.link/cal/…</div>
   });
 
   render();
-})();
-</script>
-<script>
-(function () {
-  function fitJolesLogo(svg) {
-    var text = svg.querySelector('.jl-text');
-    var arc = svg.querySelector('.jl-arc');
-    var dot1 = svg.querySelector('.jl-dot1');
-    var dot2 = svg.querySelector('.jl-dot2');
-    text.setAttribute('x', 0);
-    text.setAttribute('y', 0);
-
-    var bbox = text.getBBox();
-    var dotOffset = 7;
-    var leftX = bbox.x - dotOffset;
-    var rightX = bbox.x + bbox.width + dotOffset;
-    var arcY = bbox.y + bbox.height + 10;
-    var dipY = arcY + 18;
-    var midX = (leftX + rightX) / 2;
-
-    arc.setAttribute('d', 'M ' + leftX + ' ' + arcY + ' Q ' + midX + ' ' + dipY + ' ' + rightX + ' ' + arcY);
-    dot1.setAttribute('cx', leftX); dot1.setAttribute('cy', arcY);
-    dot2.setAttribute('cx', rightX); dot2.setAttribute('cy', arcY);
-
-    var minX = leftX - 6, maxX = rightX + 6;
-    var minY = bbox.y - 6, maxY = dipY + 8;
-    var w = maxX - minX, h = maxY - minY;
-    svg.setAttribute('viewBox', minX + ' ' + minY + ' ' + w + ' ' + h);
-
-    var displayHeight = parseFloat(getComputedStyle(svg).height) || 44;
-    svg.style.height = displayHeight + 'px';
-    svg.style.width = (displayHeight * w / h) + 'px';
-  }
-
-  function fitTeldlyLogo(svg) {
-    var text = svg.querySelector('.tl-text');
-    text.setAttribute('x', 0);
-    text.setAttribute('y', 0);
-
-    var bbox = text.getBBox();
-    var d1 = svg.querySelector('.tl-dot1');
-    var d2 = svg.querySelector('.tl-dot2');
-    var d3 = svg.querySelector('.tl-dot3');
-    var dotY = bbox.y + bbox.height + 14;
-    var startX = bbox.x + 2;
-    d1.setAttribute('cx', startX); d1.setAttribute('cy', dotY);
-    d2.setAttribute('cx', startX + 16); d2.setAttribute('cy', dotY);
-    d3.setAttribute('cx', startX + 32); d3.setAttribute('cy', dotY);
-
-    var minX = bbox.x - 6, maxX = bbox.x + bbox.width + 6;
-    var minY = bbox.y - 6, maxY = dotY + 8;
-    var w = maxX - minX, h = maxY - minY;
-    svg.setAttribute('viewBox', minX + ' ' + minY + ' ' + w + ' ' + h);
-
-    var displayHeight = parseFloat(getComputedStyle(svg).height) || 52;
-    svg.style.height = displayHeight + 'px';
-    svg.style.width = (displayHeight * w / h) + 'px';
-  }
-
-  function fitAll() {
-    var navSvg = document.getElementById('joles-logo-nav');
-    var teldlySvg = document.getElementById('teldly-logo');
-    if (navSvg) fitJolesLogo(navSvg);
-    if (teldlySvg) fitTeldlyLogo(teldlySvg);
-  }
-
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(fitAll);
-  } else {
-    fitAll();
-  }
-  window.addEventListener('load', function () { setTimeout(fitAll, 200); });
 })();
 </script>
 </body>
