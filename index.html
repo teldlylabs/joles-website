@@ -172,11 +172,11 @@ h1 em { font-style: normal; color: var(--green); }
 .bubble { animation: bubbleIn 0.35s ease; }
 @keyframes bubbleIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
-.hero-visual .wa-chat {
+.phone-screen .wa-chat {
   max-height: 420px; overflow-y: auto; scroll-behavior: smooth;
   scrollbar-width: none;
 }
-.hero-visual .wa-chat::-webkit-scrollbar { display: none; }
+.phone-screen .wa-chat::-webkit-scrollbar { display: none; }
 
 .typing-bubble {
   display: inline-flex; gap: 4px; align-items: center;
@@ -437,22 +437,7 @@ footer a:hover { color: var(--ink); }
             <div class="wa-avatar">J</div>
             <div><div class="wa-name">Joles</div><div class="wa-status">online</div></div>
           </div>
-          <div class="wa-chat">
-            <div class="bubble sent photo-bubble">
-              <div class="photo-box">📄 CCA Schedule.pdf</div>
-              <span class="chat-caption">from Parents Gateway</span>
-              <span class="time">2:15 pm</span>
-            </div>
-            <div class="bubble recv">Found 3 events for Ashton:
-
-1. Soccer training — Tue 21 Jul, 3pm @ School field
-2. Soccer training — Fri 24 Jul, 3pm @ School field
-3. 'C' Division NSG match — Thu 30 Jul, 3pm
-
-Reply <b>all</b> to add all three.<span class="time">2:15 pm</span></div>
-            <div class="bubble sent">all<span class="time">2:16 pm</span></div>
-            <div class="bubble recv">Added all 3 ✓<span class="time">2:16 pm</span></div>
-          </div>
+          <div class="wa-chat" data-chat="extraction" aria-live="polite"></div>
         </div>
       </div>
     </div>
@@ -471,15 +456,7 @@ Reply <b>all</b> to add all three.<span class="time">2:15 pm</span></div>
             <div class="wa-avatar">J</div>
             <div><div class="wa-name">Joles</div><div class="wa-status">online</div></div>
           </div>
-          <div class="wa-chat">
-            <div class="bubble sent">show me the ashton hiking notice<span class="time">6:10 pm</span></div>
-            <div class="bubble recv">24 Jul 2pm – 4:15pm<br>GB Hiking Programme (Ashton)<span class="time">6:10 pm</span></div>
-            <div class="bubble recv photo-bubble">
-              <div class="photo-box">📎 GB_Hiking_Notice.jpg</div>
-              <span class="chat-caption">Original document</span>
-              <span class="time">6:10 pm</span>
-            </div>
-          </div>
+          <div class="wa-chat" data-chat="docRetrieval" aria-live="polite"></div>
         </div>
       </div>
     </div>
@@ -498,19 +475,7 @@ Reply <b>all</b> to add all three.<span class="time">2:15 pm</span></div>
             <div class="wa-avatar">J</div>
             <div><div class="wa-name">Joles</div><div class="wa-status">online</div></div>
           </div>
-          <div class="wa-chat">
-            <div class="bubble sent">
-              <div class="voice-note">
-                <span class="voice-mic">🎤</span>
-                <span class="voice-wave"></span>
-                <span class="voice-len">0:06</span>
-              </div>
-              <span class="time">5:31 pm</span>
-            </div>
-            <div class="bubble recv">Got it — dental appointment for Emma, next Wed 3pm at TD Dental. Add it?<span class="time">5:31 pm</span></div>
-            <div class="bubble sent">yes<span class="time">5:32 pm</span></div>
-            <div class="bubble recv">Added ✓ Mom's been notified.<span class="time">5:32 pm</span></div>
-          </div>
+          <div class="wa-chat" data-chat="voice" aria-live="polite"></div>
         </div>
       </div>
     </div>
@@ -530,14 +495,7 @@ Reply <b>all</b> to add all three.<span class="time">2:15 pm</span></div>
             <div class="wa-avatar">J</div>
             <div><div class="wa-name">Joles</div><div class="wa-status">online</div></div>
           </div>
-          <div class="wa-chat">
-            <div class="bubble sent">add task: buy ashton's soccer boots by fri<span class="time">6:52 pm</span></div>
-            <div class="bubble recv">Added task ✓ Buy Ashton's soccer boots — due Fri<span class="time">6:52 pm</span></div>
-            <div class="bubble sent">what's outstanding?<span class="time">7:15 pm</span></div>
-            <div class="bubble recv"><b>Open tasks</b><br>1. Buy Ashton's soccer boots — due Fri<br>2. Sign Emma's permission slip — due Mon<span class="time">7:15 pm</span></div>
-            <div class="bubble sent">done with the boots<span class="time">7:16 pm</span></div>
-            <div class="bubble recv">Marked complete ✓<span class="time">7:16 pm</span></div>
-          </div>
+          <div class="wa-chat" data-chat="tasks" aria-live="polite"></div>
         </div>
       </div>
     </div>
@@ -557,20 +515,7 @@ Reply <b>all</b> to add all three.<span class="time">2:15 pm</span></div>
             <div class="wa-avatar">J</div>
             <div><div class="wa-name">Joles</div><div class="wa-status">online</div></div>
           </div>
-          <div class="wa-chat">
-            <div class="bubble recv">🌙 <b>Tomorrow — Thu 23 Jul</b>
-
-<b>Ashton</b>
-• 3pm Soccer training @ School Field
-
-<b>Emma</b>
-• 2:30pm P5 Supplementary Class
-• 5pm Piano lesson
-
-Reply anytime to make changes.<span class="time">8:00 pm</span></div>
-            <div class="bubble sent">move Emma's piano to 5.30<span class="time">8:04 pm</span></div>
-            <div class="bubble recv">Move "Piano lesson" (Emma) tomorrow from 5pm to 5:30pm? Reply <b>yes</b> to confirm.<span class="time">8:04 pm</span></div>
-          </div>
+          <div class="wa-chat" data-chat="digest" aria-live="polite"></div>
         </div>
       </div>
     </div>
@@ -590,12 +535,7 @@ Reply anytime to make changes.<span class="time">8:00 pm</span></div>
             <div class="wa-avatar">J</div>
             <div><div class="wa-name">Joles</div><div class="wa-status">online</div></div>
           </div>
-          <div class="wa-chat">
-            <div class="bubble recv">Heads up — <b>Dad</b> moved Emma's dental appointment to Thu 4pm @ TD Dental.<span class="time">1:20 pm</span></div>
-            <div class="bubble recv">Heads up — <b>Mom</b> added "Swim class" for Ashton, Sat 9am @ Serangoon Swimming Complex.<span class="time">3:45 pm</span></div>
-            <div class="bubble sent">who's taking him?<span class="time">3:47 pm</span></div>
-            <div class="bubble recv">That's one for the family group chat 😄 — but I've got the schedule covered.<span class="time">3:47 pm</span></div>
-          </div>
+          <div class="wa-chat" data-chat="coparent" aria-live="polite"></div>
         </div>
       </div>
     </div>
@@ -615,18 +555,7 @@ Reply anytime to make changes.<span class="time">8:00 pm</span></div>
             <div class="wa-avatar">J</div>
             <div><div class="wa-name">Joles</div><div class="wa-status">online</div></div>
           </div>
-          <div class="wa-chat">
-            <div class="bubble sent">what's on for the kids this weekend?<span class="time">9:02 pm</span></div>
-            <div class="bubble recv"><b>Sat 25 Jul</b>
-• 9am Swim class (Ashton)
-• 10am Piano lesson (Emma)
-• 12pm–3pm Chinese Tuition (Emma) @ Hillview
-
-<b>Sun 26 Jul</b>
-• 6pm–7:30pm Ballet (Emma) @ Thomson<span class="time">9:02 pm</span></div>
-            <div class="bubble sent">is Ashton free sat afternoon?<span class="time">9:03 pm</span></div>
-            <div class="bubble recv">Yes — Ashton's only got swim class at 9am. Saturday afternoon is clear.<span class="time">9:03 pm</span></div>
-          </div>
+          <div class="wa-chat" data-chat="household" aria-live="polite"></div>
         </div>
       </div>
     </div>
@@ -645,14 +574,7 @@ Reply anytime to make changes.<span class="time">8:00 pm</span></div>
             <div class="wa-avatar">J</div>
             <div><div class="wa-name">Joles</div><div class="wa-status">online</div></div>
           </div>
-          <div class="wa-chat">
-            <div class="bubble sent">取消Emma星期六的钢琴课<span class="time">4:12 pm</span></div>
-            <div class="bubble recv">好的 — 取消本周六 Emma 的钢琴课（10am）？
-
-回复 <b>是</b> 确认。<span class="time">4:12 pm</span></div>
-            <div class="bubble sent">是<span class="time">4:13 pm</span></div>
-            <div class="bubble recv">已取消 ✓ 已通知 Dad。<span class="time">4:13 pm</span></div>
-          </div>
+          <div class="wa-chat" data-chat="chinese" aria-live="polite"></div>
         </div>
       </div>
     </div>
@@ -771,95 +693,214 @@ joles.link/cal/…</div>
 
 <script>
 (function () {
-  var chat = document.getElementById('heroChat');
-  if (!chat) return;
+  // ---------- Demo scripts: one per phone mockup on the page ----------
+  // 'hero' plays immediately on load (as before). Feature demos play once
+  // each phone first scrolls into view, then loop for as long as it's on screen.
+  var demoScripts = {
+    hero: [
+      { type: 'photo', side: 'sent', icon: '\uD83D\uDCF7', label: 'CCA schedule screenshot', caption: 'from Parents Gateway', time: '7:40 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: 'Found 2 events for Ashton:\n\n1. Soccer training — Tue 21 Jul, 3pm @ School field\n2. \u2018C\u2019 Division NSG match — Thu 30 Jul, 3pm\n\nReply <b>all</b> to add both.', time: '7:40 pm' },
+      { type: 'text', side: 'sent', text: 'all', time: '7:41 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: 'Added both \u2713 Dad\u2019s been notified.', time: '7:41 pm' },
+      { type: 'text', side: 'sent', text: 'Emma has piano moved to 5.30pm Sat', time: '7:43 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: 'Move "Piano lesson" (Emma) Sat from 5pm to 5:30pm? Reply <b>yes</b> to confirm.', time: '7:43 pm' },
+      { type: 'text', side: 'sent', text: 'yes', time: '7:44 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: 'Updated \u2713', time: '7:44 pm' },
+      { type: 'text', side: 'sent', text: "what's on for Emma next week?", time: '7:45 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: '<b>Emma \u2014 next week</b>\nMon 2:30pm P5 Supplementary Class\nWed 5pm Piano lesson\nSat 10am Ballet @ Thomson', time: '7:45 pm' }
+    ],
+
+    extraction: [
+      { type: 'photo', side: 'sent', icon: '\uD83D\uDCC4', label: 'CCA Schedule.pdf', caption: 'from Parents Gateway', time: '2:15 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: "Found 3 events for Ashton:\n\n1. Soccer training — Tue 21 Jul, 3pm @ School field\n2. Soccer training — Fri 24 Jul, 3pm @ School field\n3. 'C' Division NSG match — Thu 30 Jul, 3pm\n\nReply <b>all</b> to add all three.", time: '2:15 pm' },
+      { type: 'text', side: 'sent', text: 'all', time: '2:16 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: 'Added all 3 \u2713', time: '2:16 pm' }
+    ],
+
+    docRetrieval: [
+      { type: 'text', side: 'sent', text: 'show me the ashton hiking notice', time: '6:10 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: '24 Jul 2pm – 4:15pm\nGB Hiking Programme (Ashton)', time: '6:10 pm' },
+      { type: 'photo', side: 'recv', icon: '\uD83D\uDCCE', label: 'GB_Hiking_Notice.jpg', caption: 'Original document', time: '6:10 pm' }
+    ],
+
+    voice: [
+      { type: 'voice', side: 'sent', length: '0:06', time: '5:31 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: 'Got it — dental appointment for Emma, next Wed 3pm at TD Dental. Add it?', time: '5:31 pm' },
+      { type: 'text', side: 'sent', text: 'yes', time: '5:32 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: "Added \u2713 Mom's been notified.", time: '5:32 pm' }
+    ],
+
+    tasks: [
+      { type: 'text', side: 'sent', text: "add task: buy ashton's soccer boots by fri", time: '6:52 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: "Added task \u2713 Buy Ashton's soccer boots — due Fri", time: '6:52 pm' },
+      { type: 'text', side: 'sent', text: "what's outstanding?", time: '7:15 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: "<b>Open tasks</b>\n1. Buy Ashton's soccer boots — due Fri\n2. Sign Emma's permission slip — due Mon", time: '7:15 pm' },
+      { type: 'text', side: 'sent', text: 'done with the boots', time: '7:16 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: 'Marked complete \u2713', time: '7:16 pm' }
+    ],
+
+    digest: [
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: '\uD83C\uDF19 <b>Tomorrow — Thu 23 Jul</b>\n\n<b>Ashton</b>\n\u2022 3pm Soccer training @ School Field\n\n<b>Emma</b>\n\u2022 2:30pm P5 Supplementary Class\n\u2022 5pm Piano lesson\n\nReply anytime to make changes.', time: '8:00 pm' },
+      { type: 'text', side: 'sent', text: "move Emma's piano to 5.30", time: '8:04 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: 'Move "Piano lesson" (Emma) tomorrow from 5pm to 5:30pm? Reply <b>yes</b> to confirm.', time: '8:04 pm' }
+    ],
+
+    coparent: [
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: "Heads up — <b>Dad</b> moved Emma's dental appointment to Thu 4pm @ TD Dental.", time: '1:20 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: 'Heads up — <b>Mom</b> added "Swim class" for Ashton, Sat 9am @ Serangoon Swimming Complex.', time: '3:45 pm' },
+      { type: 'text', side: 'sent', text: "who's taking him?", time: '3:47 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: "That's one for the family group chat \uD83D\uDE04 — but I've got the schedule covered.", time: '3:47 pm' }
+    ],
+
+    household: [
+      { type: 'text', side: 'sent', text: "what's on for the kids this weekend?", time: '9:02 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: '<b>Sat 25 Jul</b>\n\u2022 9am Swim class (Ashton)\n\u2022 10am Piano lesson (Emma)\n\u2022 12pm–3pm Chinese Tuition (Emma) @ Hillview\n\n<b>Sun 26 Jul</b>\n\u2022 6pm–7:30pm Ballet (Emma) @ Thomson', time: '9:02 pm' },
+      { type: 'text', side: 'sent', text: 'is Ashton free sat afternoon?', time: '9:03 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: "Yes — Ashton's only got swim class at 9am. Saturday afternoon is clear.", time: '9:03 pm' }
+    ],
+
+    chinese: [
+      { type: 'text', side: 'sent', text: '\u53d6\u6d88Emma\u661f\u671f\u516d\u7684\u94a2\u7434\u8bfe', time: '4:12 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: '\u597d\u7684 — \u53d6\u6d88\u672c\u5468\u516d Emma \u7684\u94a2\u7434\u8bfe\uFF0810am\uFF09\uFF1F\n\n\u56de\u590d <b>\u662f</b> \u786e\u8ba4\u3002', time: '4:12 pm' },
+      { type: 'text', side: 'sent', text: '\u662f', time: '4:13 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: '\u5df2\u53d6\u6d88 \u2713 \u5df2\u901a\u77e5 Dad\u3002', time: '4:13 pm' }
+    ]
+  };
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var script = [
-    { type: 'photo', caption: 'CCA schedule screenshot', from: 'from Parents Gateway', time: '7:40 pm' },
-    { type: 'typing' },
-    { type: 'text', side: 'recv', text: 'Found 2 events for Ashton:\n\n1. Soccer training — Tue 21 Jul, 3pm @ School field\n2. \u2018C\u2019 Division NSG match — Thu 30 Jul, 3pm\n\nReply <b>all</b> to add both.', time: '7:40 pm' },
-    { type: 'text', side: 'sent', text: 'all', time: '7:41 pm' },
-    { type: 'typing' },
-    { type: 'text', side: 'recv', text: 'Added both \u2713 Dad\u2019s been notified.', time: '7:41 pm' },
-    { type: 'text', side: 'sent', text: 'Emma has piano moved to 5.30pm Sat', time: '7:43 pm' },
-    { type: 'typing' },
-    { type: 'text', side: 'recv', text: 'Move "Piano lesson" (Emma) Sat from 5pm to 5:30pm? Reply <b>yes</b> to confirm.', time: '7:43 pm' },
-    { type: 'text', side: 'sent', text: 'yes', time: '7:44 pm' },
-    { type: 'typing' },
-    { type: 'text', side: 'recv', text: 'Updated \u2713', time: '7:44 pm' },
-    { type: 'text', side: 'sent', text: "what's on for Emma next week?", time: '7:45 pm' },
-    { type: 'typing' },
-    { type: 'text', side: 'recv', text: '<b>Emma \u2014 next week</b>\nMon 2:30pm P5 Supplementary Class\nWed 5pm Piano lesson\nSat 10am Ballet @ Thomson', time: '7:45 pm' }
-  ];
+  // ---------- Reusable chat-demo engine ----------
+  function createChatDemo(chat, script) {
+    var i = 0;
+    var typingEl = null;
+    var started = false;
 
-  function clearChat() { chat.innerHTML = ''; }
-  function scrollDown() { chat.scrollTop = chat.scrollHeight; }
+    function clearChat() { chat.innerHTML = ''; }
+    function scrollDown() { chat.scrollTop = chat.scrollHeight; }
 
-  function buildBubble(item) {
-    var div = document.createElement('div');
-    if (item.type === 'photo') {
-      div.className = 'bubble sent photo-bubble';
-      div.innerHTML = '<div class="photo-box">\uD83D\uDCF7 ' + item.caption + '</div><span class="chat-caption">' + item.from + '</span><span class="time">' + item.time + '</span>';
-    } else {
-      div.className = 'bubble ' + item.side;
-      div.innerHTML = item.text.replace(/\n/g, '<br>') + '<span class="time">' + item.time + '</span>';
+    function buildBubble(item) {
+      var div = document.createElement('div');
+      var side = item.side || 'sent';
+      if (item.type === 'photo') {
+        div.className = 'bubble ' + side + ' photo-bubble';
+        div.innerHTML = '<div class="photo-box">' + item.icon + ' ' + item.label + '</div>' +
+          (item.caption ? '<span class="chat-caption">' + item.caption + '</span>' : '') +
+          '<span class="time">' + item.time + '</span>';
+      } else if (item.type === 'voice') {
+        div.className = 'bubble ' + side;
+        div.innerHTML = '<div class="voice-note"><span class="voice-mic">\uD83C\uDF99\uFE0F</span><span class="voice-wave"></span><span class="voice-len">' + item.length + '</span></div><span class="time">' + item.time + '</span>';
+      } else {
+        div.className = 'bubble ' + side;
+        div.innerHTML = item.text.replace(/\n/g, '<br>') + '<span class="time">' + item.time + '</span>';
+      }
+      return div;
     }
-    return div;
-  }
 
-  function buildTyping() {
-    var div = document.createElement('div');
-    div.className = 'bubble recv typing-bubble';
-    div.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
-    return div;
-  }
+    function buildTyping() {
+      var div = document.createElement('div');
+      div.className = 'bubble recv typing-bubble';
+      div.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+      return div;
+    }
 
-  function renderStatic() {
-    clearChat();
-    script.forEach(function (item) {
-      if (item.type === 'typing') return;
+    function renderStatic() {
+      clearChat();
+      script.forEach(function (item) {
+        if (item.type === 'typing') return;
+        chat.appendChild(buildBubble(item));
+      });
+      scrollDown();
+    }
+
+    function step() {
+      if (i >= script.length) {
+        setTimeout(function () {
+          clearChat();
+          i = 0;
+          typingEl = null;
+          setTimeout(step, 500);
+        }, 3200);
+        return;
+      }
+      var item = script[i];
+      if (item.type === 'typing') {
+        typingEl = buildTyping();
+        chat.appendChild(typingEl);
+        scrollDown();
+        i++;
+        setTimeout(step, 900);
+        return;
+      }
+      if (typingEl) { typingEl.remove(); typingEl = null; }
       chat.appendChild(buildBubble(item));
-    });
-    scrollDown();
-  }
-
-  if (reduceMotion) {
-    renderStatic();
-    return;
-  }
-
-  var i = 0;
-  var typingEl = null;
-
-  function step() {
-    if (i >= script.length) {
-      setTimeout(function () {
-        clearChat();
-        i = 0;
-        typingEl = null;
-        setTimeout(step, 500);
-      }, 3200);
-      return;
-    }
-    var item = script[i];
-    if (item.type === 'typing') {
-      typingEl = buildTyping();
-      chat.appendChild(typingEl);
       scrollDown();
       i++;
-      setTimeout(step, 900);
-      return;
+      setTimeout(step, (item.side || 'sent') === 'sent' ? 700 : 1500);
     }
-    if (typingEl) { typingEl.remove(); typingEl = null; }
-    chat.appendChild(buildBubble(item));
-    scrollDown();
-    i++;
-    setTimeout(step, item.side === 'sent' ? 700 : 1500);
+
+    return {
+      start: function () {
+        if (started) return;
+        started = true;
+        if (reduceMotion) { renderStatic(); return; }
+        step();
+      }
+    };
   }
 
-  step();
+  // ---------- Hero: plays immediately, as before ----------
+  var heroChat = document.getElementById('heroChat');
+  if (heroChat) {
+    createChatDemo(heroChat, demoScripts.hero).start();
+  }
+
+  // ---------- Feature demos: play once each phone scrolls into view ----------
+  var featureEls = Array.prototype.slice.call(document.querySelectorAll('.wa-chat[data-chat]'));
+  var demos = featureEls.map(function (el) {
+    var key = el.getAttribute('data-chat');
+    var script = demoScripts[key];
+    return script ? { el: el, demo: createChatDemo(el, script) } : null;
+  }).filter(Boolean);
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var match = demos.find(function (d) { return d.el === entry.target; });
+        if (match) {
+          match.demo.start();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.35 });
+
+    demos.forEach(function (d) { observer.observe(d.el); });
+  } else {
+    // No IntersectionObserver support: just play everything right away.
+    demos.forEach(function (d) { d.demo.start(); });
+  }
 })();
 </script>
 <script>
