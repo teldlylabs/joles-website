@@ -70,6 +70,7 @@ body {
   color: var(--ink-soft); text-decoration: none; font-weight: 600; font-size: 15px;
 }
 .nav-links a:hover { color: var(--ink); }
+.nav-links a.btn, .nav-links a.btn:hover { color: #fff; }
 .btn {
   display: inline-block; background: var(--green); color: #fff;
   font-family: var(--display); font-weight: 600; font-size: 16px;
@@ -228,6 +229,11 @@ h2 {
   font-size: clamp(26px, 3.2vw, 34px); line-height: 1.18;
   letter-spacing: -0.5px; margin-bottom: 12px;
 }
+.feature-eyebrow {
+  display: inline-block; font-family: var(--body); font-weight: 400;
+  font-size: 15px; text-decoration: underline; text-underline-offset: 3px;
+  color: var(--ink-soft); margin-bottom: 8px;
+}
 .feature p { font-size: 25px; color: var(--ink-soft); max-width: 540px; }
 .feature p + p { margin-top: 12px; }
 .tint-mint { background: var(--mint); }
@@ -323,6 +329,10 @@ h2 {
 .cta-section p { color: #c9c9d1; font-size: 27px; max-width: 620px; margin: 0 auto 28px; }
 .cta-section .btn { background: var(--wa-green); color: #073d24; }
 .cta-section .btn:hover { background: #1fbf5b; }
+.built-note {
+  text-align: center; font-size: 15px; color: var(--ink-soft);
+  margin: 0 0 40px;
+}
 
 /* ---------- Footer ---------- */
 footer {
@@ -378,6 +388,7 @@ footer a:hover { color: var(--ink); }
       <div class="hero-ctas">
         <a class="btn btn-big" href="https://wa.me/6589911825?text=Hi%20Joles%2C%20I%27d%20like%20to%20get%20started%20with%20my%20family%27s%20schedule%21" target="_blank" rel="noopener">Start your free 14-day trial</a>
       </div>
+      <p class="hero-note">No commitment, no credit card needed for the trial.</p>
     </div>
     <div class="hero-visual">
       <div class="phone">
@@ -414,7 +425,7 @@ footer a:hover { color: var(--ink); }
     </div>
     <div class="step">
       <div class="step-num">3</div>
-      <h3>Everyone stays in sync</h3>
+      <h3>Everyone stays up to date</h3>
       <p>When one parent adds or changes something, the other hears about it. Every evening, everyone gets tomorrow's schedule — before it's tomorrow.</p>
     </div>
   </div>
@@ -426,6 +437,7 @@ footer a:hover { color: var(--ink); }
   <!-- 1. Extraction -->
   <div class="feature tint-mint">
     <div class="feature-copy">
+      <span class="feature-eyebrow">Auto-Extract from Photo &amp; PDF</span>
       <h3>Snap the notice. Skip the typing.</h3>
       <p>Parents Gateway consent forms, ClassDojo announcements, CCA schedules, tuition centre timetables — send the photo or PDF and Joles pulls out every date, time and venue for you.</p>
       <p>It shows you what it found, you reply once, and it's all on the calendar.</p>
@@ -446,6 +458,7 @@ footer a:hover { color: var(--ink); }
   <!-- 1b. Document retrieval (Max plan) -->
   <div class="feature tint-sky flip">
     <div class="feature-copy">
+      <span class="feature-eyebrow">Document Retrieval</span>
       <h3>Never dig through old chats again. <span class="save-badge">Family Max</span></h3>
       <p>Every notice, screenshot, and PDF Joles reads gets saved — not just the dates. Ask "show me the CCA schedule" any time, even months later, or tap the link in your daily digest to pull up the original file instantly.</p>
     </div>
@@ -465,6 +478,7 @@ footer a:hover { color: var(--ink); }
   <!-- 2. Voice -->
   <div class="feature tint-butter flip">
     <div class="feature-copy">
+      <span class="feature-eyebrow">Voice Notes</span>
       <h3>Say it. Don't type it. <span class="save-badge">Family Max</span></h3>
       <p>Driving to pickup? Hands full at the hawker centre? Send a voice note — in English or Chinese — and Joles handles it like a typed message.</p>
     </div>
@@ -484,6 +498,7 @@ footer a:hover { color: var(--ink); }
   <!-- 2b. Tasks & notes (Max plan) -->
   <div class="feature tint-lilac">
     <div class="feature-copy">
+      <span class="feature-eyebrow">Tasks &amp; To-Dos</span>
       <h3>Not everything needs a date. <span class="save-badge">Family Max</span></h3>
       <p>Buy new soccer boots. Sign the permission slip. Some things just need doing, not scheduling. Add them as tasks with a due date if they have one, and check them off the moment they're done.</p>
       <p>Ask "what's outstanding?" any time and Joles lists everything still open — across the whole family, not just your own.</p>
@@ -504,6 +519,7 @@ footer a:hover { color: var(--ink); }
   <!-- 3. Evening digest -->
   <div class="feature tint-sky">
     <div class="feature-copy">
+      <span class="feature-eyebrow">Daily Digest</span>
       <h3>Tomorrow, sorted by 8 tonight.</h3>
       <p>Every evening, Joles sends each parent tomorrow's schedule — who has what, when, and where. No morning scramble, no "wait, is tuition today?"</p>
       <p>Each family member can pick their own digest time.</p>
@@ -524,6 +540,7 @@ footer a:hover { color: var(--ink); }
   <!-- 4. Co-parent -->
   <div class="feature tint-blush flip">
     <div class="feature-copy">
+      <span class="feature-eyebrow">Co-Parent Sync</span>
       <h3>Both parents. Always in the loop.</h3>
       <p>When Dad moves the dental appointment, Mom finds out from Joles — not at the clinic. Every add, change and cancellation reaches the other parent automatically.</p>
       <p>No more "you never told me."</p>
@@ -544,6 +561,7 @@ footer a:hover { color: var(--ink); }
   <!-- 5. Whole household -->
   <div class="feature tint-lilac">
     <div class="feature-copy">
+      <span class="feature-eyebrow">Household Calendar</span>
       <h3>One calendar for the household. Not one person.</h3>
       <p>Google and Apple calendars were built for one person's meetings. Joles was built for a family — every event belongs to someone, and you ask about people, not time slots.</p>
       <p>"What's on for Emma this week?" "Is Ashton free Saturday?" Joles knows exactly who you mean.</p>
@@ -564,6 +582,7 @@ footer a:hover { color: var(--ink); }
   <!-- 6. Chinese -->
   <div class="feature tint-mint flip">
     <div class="feature-copy">
+      <span class="feature-eyebrow">Bilingual Support</span>
       <h3>English or 中文 — Joles speaks both.</h3>
       <p>Grandparents helping with pickup? Helper managing the weekday runs? Anyone in the household can message Joles in Chinese and get replies in Chinese — no settings to change, it just follows the language you use.</p>
     </div>
@@ -587,31 +606,21 @@ footer a:hover { color: var(--ink); }
     <div class="mini">
       <h4>Clash warnings</h4>
       <p>Joles checks for overlaps before anything goes on the calendar.</p>
-      <div class="mini-chat">
-        <div class="bubble sent">add badminton for Ashton sat 10am</div>
-        <div class="bubble recv">⚠️ Heads up — that clashes with Ashton's swim class (Sat 9–10:30am). Still add it?</div>
-      </div>
+      <div class="mini-chat" data-chat="clash" aria-live="polite"></div>
     </div>
     <div class="mini">
       <h4>Undo anything</h4>
       <p>Deleted the wrong thing? One word brings it back.</p>
-      <div class="mini-chat">
-        <div class="bubble sent">undo</div>
-        <div class="bubble recv">Restored "Piano lesson" (Emma), Sat 10am ✓</div>
-      </div>
+      <div class="mini-chat" data-chat="undo" aria-live="polite"></div>
     </div>
     <div class="mini">
       <h4>Month view, one tap</h4>
       <p>Ask for the calendar and get a private link to the whole month at a glance.</p>
-      <div class="mini-chat">
-        <div class="bubble sent">show me the calendar</div>
-        <div class="bubble recv">Here's your family calendar 📅
-joles.link/cal/…</div>
-      </div>
+      <div class="mini-chat" data-chat="monthview" aria-live="polite"></div>
     </div>
   </div>
 
-  <p class="trust">Built in Singapore 🇸🇬 · Your family's data stays yours · PDPA-compliant</p>
+  <p class="trust">PDPA-compliant · Your family's data stays yours</p>
 </section>
 
 <!-- ================= PRICING ================= -->
@@ -676,7 +685,9 @@ joles.link/cal/…</div>
     <h2>Ready to let Joles help with your family schedule?</h2>
     <p>Message Joles on WhatsApp and we'll set your household up in minutes.</p>
     <a class="btn btn-big" href="https://wa.me/6589911825?text=Hi%20Joles%2C%20I%27d%20like%20to%20get%20started%20with%20my%20family%27s%20schedule%21" target="_blank" rel="noopener">Start your free trial</a>
+    <p style="color: #c9c9d1; font-size: 14px; margin-top: 14px;">No commitment, no credit card needed for the trial.</p>
   </div>
+  <p class="built-note">Built in Singapore 🇸🇬</p>
 </section>
 
 <!-- ================= FOOTER ================= -->
@@ -786,6 +797,24 @@ joles.link/cal/…</div>
       { type: 'text', side: 'sent', text: '\u662f', time: '4:13 pm' },
       { type: 'typing' },
       { type: 'text', side: 'recv', text: '\u5df2\u53d6\u6d88 \u2713 \u5df2\u901a\u77e5 Dad\u3002', time: '4:13 pm' }
+    ],
+
+    clash: [
+      { type: 'text', side: 'sent', text: 'add badminton for Ashton sat 10am' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: "\u26A0\uFE0F Heads up — that clashes with Ashton's swim class (Sat 9–10:30am). Still add it?" }
+    ],
+
+    undo: [
+      { type: 'text', side: 'sent', text: 'undo' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: 'Restored "Piano lesson" (Emma), Sat 10am \u2713' }
+    ],
+
+    monthview: [
+      { type: 'text', side: 'sent', text: 'show me the calendar' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: "Here's your family calendar \uD83D\uDCC5\njoles.link/cal/…" }
     ]
   };
 
@@ -813,7 +842,7 @@ joles.link/cal/…</div>
         div.innerHTML = '<div class="voice-note"><span class="voice-mic">\uD83C\uDF99\uFE0F</span><span class="voice-wave"></span><span class="voice-len">' + item.length + '</span></div><span class="time">' + item.time + '</span>';
       } else {
         div.className = 'bubble ' + side;
-        div.innerHTML = item.text.replace(/\n/g, '<br>') + '<span class="time">' + item.time + '</span>';
+        div.innerHTML = item.text.replace(/\n/g, '<br>') + (item.time ? '<span class="time">' + item.time + '</span>' : '');
       }
       return div;
     }
@@ -877,7 +906,7 @@ joles.link/cal/…</div>
   }
 
   // ---------- Feature demos: play once each phone scrolls into view ----------
-  var featureEls = Array.prototype.slice.call(document.querySelectorAll('.wa-chat[data-chat]'));
+  var featureEls = Array.prototype.slice.call(document.querySelectorAll('[data-chat]'));
   var demos = featureEls.map(function (el) {
     var key = el.getAttribute('data-chat');
     var script = demoScripts[key];
