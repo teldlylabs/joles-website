@@ -309,6 +309,7 @@ h2 {
   content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700;
 }
 .price-card .btn { display: block; text-align: center; width: 100%; }
+.card-note { text-align: center; font-size: 13px; color: var(--ink-soft); margin-top: 10px; }
 .pricing-trial-note {
   text-align: center; font-size: 15px; color: var(--ink-soft); margin-top: 28px;
   max-width: 560px; margin-left: auto; margin-right: auto;
@@ -584,7 +585,7 @@ footer a:hover { color: var(--ink); }
     <div class="feature-copy">
       <span class="feature-eyebrow">Bilingual Support</span>
       <h3>English or 中文 — Joles speaks both.</h3>
-      <p>Grandparents helping with pickup? Helper managing the weekday runs? Anyone in the household can message Joles in Chinese and get replies in Chinese — no settings to change, it just follows the language you use.</p>
+      <p>Prefer to converse in 中文? Grandparents helping with pickup? Or helper managing the weekday runs? Simply message Joles in English or Chinese and get replies in the language you use — no settings to change.</p>
     </div>
     <div class="feature-visual">
       <div class="phone">
@@ -600,23 +601,33 @@ footer a:hover { color: var(--ink); }
   </div>
 
   <!-- Also built in -->
-  <h2 style="margin-top: 44px;">Also built in</h2>
-  <p class="section-intro">The small things that make a scheduler trustworthy.</p>
+  <h2 style="margin-top: 44px;">Also included:</h2>
+  <p class="section-intro">Small touches that make life just a little better.</p>
   <div class="mini-grid">
     <div class="mini">
       <h4>Clash warnings</h4>
       <p>Joles checks for overlaps before anything goes on the calendar.</p>
-      <div class="mini-chat" data-chat="clash" aria-live="polite"></div>
+      <div class="mini-chat">
+        <div class="bubble sent">add badminton for Ashton sat 10am</div>
+        <div class="bubble recv">⚠️ Heads up — that clashes with Ashton's swim class (Sat 9–10:30am). Still add it?</div>
+      </div>
     </div>
     <div class="mini">
       <h4>Undo anything</h4>
       <p>Deleted the wrong thing? One word brings it back.</p>
-      <div class="mini-chat" data-chat="undo" aria-live="polite"></div>
+      <div class="mini-chat">
+        <div class="bubble sent">undo</div>
+        <div class="bubble recv">Restored "Piano lesson" (Emma), Sat 10am ✓</div>
+      </div>
     </div>
     <div class="mini">
       <h4>Month view, one tap</h4>
       <p>Ask for the calendar and get a private link to the whole month at a glance.</p>
-      <div class="mini-chat" data-chat="monthview" aria-live="polite"></div>
+      <div class="mini-chat">
+        <div class="bubble sent">show me the calendar</div>
+        <div class="bubble recv">Here's your family calendar 📅
+joles.link/cal/…</div>
+      </div>
     </div>
   </div>
 
@@ -654,6 +665,7 @@ footer a:hover { color: var(--ink); }
         <li>Up to 4 family members</li>
       </ul>
       <a class="btn" href="https://wa.me/6589911825?text=Hi%20Joles%2C%20I%27d%20like%20to%20get%20started%20with%20my%20family%27s%20schedule%21" target="_blank" rel="noopener">Start free trial</a>
+      <p class="card-note">No commitment, no credit card needed for the trial.</p>
     </div>
 
     <div class="price-card featured">
@@ -673,6 +685,7 @@ footer a:hover { color: var(--ink); }
         <li>Unlimited family members</li>
       </ul>
       <a class="btn btn-big" href="https://wa.me/6589911825?text=Hi%20Joles%2C%20I%27d%20like%20to%20get%20started%20with%20my%20family%27s%20schedule%21" target="_blank" rel="noopener">Start free trial</a>
+      <p class="card-note">No commitment, no credit card needed for the trial.</p>
     </div>
   </div>
 
@@ -682,8 +695,8 @@ footer a:hover { color: var(--ink); }
 <!-- ================= CTA ================= -->
 <section class="wrap">
   <div class="cta-section">
-    <h2>Ready to let Joles help with your family schedule?</h2>
-    <p>Message Joles on WhatsApp and we'll set your household up in minutes.</p>
+    <h2>Try it to believe it!</h2>
+    <p>Just message Joles on WhatsApp and get set up in just a few taps.</p>
     <a class="btn btn-big" href="https://wa.me/6589911825?text=Hi%20Joles%2C%20I%27d%20like%20to%20get%20started%20with%20my%20family%27s%20schedule%21" target="_blank" rel="noopener">Start your free trial</a>
     <p style="color: #c9c9d1; font-size: 14px; margin-top: 14px;">No commitment, no credit card needed for the trial.</p>
   </div>
@@ -723,7 +736,10 @@ footer a:hover { color: var(--ink); }
       { type: 'text', side: 'recv', text: 'Updated \u2713', time: '7:44 pm' },
       { type: 'text', side: 'sent', text: "what's on for Emma next week?", time: '7:45 pm' },
       { type: 'typing' },
-      { type: 'text', side: 'recv', text: '<b>Emma \u2014 next week</b>\nMon 2:30pm P5 Supplementary Class\nWed 5pm Piano lesson\nSat 10am Ballet @ Thomson', time: '7:45 pm' }
+      { type: 'text', side: 'recv', text: '<b>Emma \u2014 next week</b>\nMon 2:30pm P5 Supplementary Class\nWed 5pm Piano lesson\nSat 10am Ballet @ Thomson', time: '7:45 pm' },
+      { type: 'text', side: 'sent', text: '\u660e\u5929Ashton\u6709\u4ec0\u4e48\u5b89\u6392\uFF1F', time: '7:47 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: '\u660e\u5929 <b>Ashton</b>\n3pm \u8db3\u7403\u8bad\u7ec3 @ \u5b66\u6821\u7403\u573a', time: '7:47 pm' }
     ],
 
     extraction: [
@@ -797,24 +813,6 @@ footer a:hover { color: var(--ink); }
       { type: 'text', side: 'sent', text: '\u662f', time: '4:13 pm' },
       { type: 'typing' },
       { type: 'text', side: 'recv', text: '\u5df2\u53d6\u6d88 \u2713 \u5df2\u901a\u77e5 Dad\u3002', time: '4:13 pm' }
-    ],
-
-    clash: [
-      { type: 'text', side: 'sent', text: 'add badminton for Ashton sat 10am' },
-      { type: 'typing' },
-      { type: 'text', side: 'recv', text: "\u26A0\uFE0F Heads up — that clashes with Ashton's swim class (Sat 9–10:30am). Still add it?" }
-    ],
-
-    undo: [
-      { type: 'text', side: 'sent', text: 'undo' },
-      { type: 'typing' },
-      { type: 'text', side: 'recv', text: 'Restored "Piano lesson" (Emma), Sat 10am \u2713' }
-    ],
-
-    monthview: [
-      { type: 'text', side: 'sent', text: 'show me the calendar' },
-      { type: 'typing' },
-      { type: 'text', side: 'recv', text: "Here's your family calendar \uD83D\uDCC5\njoles.link/cal/…" }
     ]
   };
 
