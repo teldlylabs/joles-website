@@ -216,6 +216,26 @@ h2 {
 .step p { font-size: 23px; color: var(--ink-soft); }
 @media (max-width: 800px) { .steps { grid-template-columns: 1fr; } }
 
+/* ---------- Hero callout (new-feature banner) ---------- */
+.spell-callout {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--blush); border-radius: var(--radius-md);
+  padding: 16px 22px; margin: 8px 0 44px; text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.spell-callout:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+.spell-callout-badge {
+  flex-shrink: 0; font-family: var(--display); font-weight: 700; font-size: 13px;
+  color: #fff; background: var(--green); padding: 5px 12px; border-radius: 999px;
+}
+.spell-callout-text { color: var(--ink); font-size: 16px; line-height: 1.4; }
+.spell-callout-text strong { font-family: var(--display); }
+.spell-callout-arrow { margin-left: auto; color: var(--ink-soft); font-weight: 700; flex-shrink: 0; }
+@media (max-width: 640px) {
+  .spell-callout { flex-wrap: wrap; padding: 14px 18px; }
+  .spell-callout-arrow { display: none; }
+}
+
 /* ---------- Feature sections ---------- */
 .feature {
   border-radius: var(--radius-lg);
@@ -281,6 +301,10 @@ h2 {
 .save-badge {
   display: inline-block; font-size: 13px; font-weight: 700; color: var(--green);
   background: var(--mint); padding: 3px 10px; border-radius: 999px; margin-left: 4px;
+}
+.new-badge {
+  display: inline-block; font-size: 13px; font-weight: 700; color: #8a6d00;
+  background: var(--butter); padding: 3px 10px; border-radius: 999px; margin-left: 4px;
 }
 .pricing-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 820px; margin: 0 auto;
@@ -423,6 +447,14 @@ footer a:hover { color: var(--ink); }
   </div>
 </header>
 
+<div class="wrap">
+  <a href="#spell" class="spell-callout">
+    <span class="spell-callout-badge">New</span>
+    <span class="spell-callout-text"><strong>Joles Spell &amp; 听写</strong> — snap a spelling list, get back an audio test, and let Joles mark the answers too.</span>
+    <span class="spell-callout-arrow">→</span>
+  </a>
+</div>
+
 <!-- ================= HOW IT WORKS ================= -->
 <section class="section wrap" id="how">
   <h2>No app to install. No calendar to maintain.</h2>
@@ -485,6 +517,27 @@ footer a:hover { color: var(--ink); }
             <div><div class="wa-name">Joles</div><div class="wa-status">online</div></div>
           </div>
           <div class="wa-chat" data-chat="docRetrieval" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1c. Joles Spell -->
+  <div class="feature tint-blush" id="spell">
+    <div class="feature-copy">
+      <span class="feature-eyebrow">Spelling &amp; 听写 Practice</span>
+      <h3>Homework help, right in the chat. <span class="save-badge">Family Max</span> <span class="new-badge">New</span></h3>
+      <p>Snap a photo of your child's spelling or 听写 word list, and Joles sends back a voice recording to test them — no app, no setup, just tap play.</p>
+      <p>Once they're done, snap a photo of their completed answers and Joles marks it for you, on the spot.</p>
+    </div>
+    <div class="feature-visual">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="wa-header">
+            <div class="wa-avatar">J</div>
+            <div><div class="wa-name">Joles</div><div class="wa-status">online</div></div>
+          </div>
+          <div class="wa-chat" data-chat="spell" aria-live="polite"></div>
         </div>
       </div>
     </div>
@@ -693,6 +746,7 @@ joles.link/cal/…</div>
       <p class="price-annual-note" id="noteMax">&nbsp;</p>
       <ul class="price-features">
         <li>Everything in Family Standard</li>
+        <li>Spelling &amp; 听写 practice — auto-generated audio tests, auto-marked answers <span class="new-badge">New</span></li>
         <li>Voice note support</li>
         <li>Look up any original photo/PDF, any time — even months later</li>
         <li>Task management — add, track and complete tasks with due dates</li>
@@ -779,6 +833,18 @@ joles.link/cal/…</div>
       { type: 'typing' },
       { type: 'text', side: 'recv', text: '24 Jul 2pm – 4:15pm\nGB Hiking Programme (Ashton)', time: '6:10 pm' },
       { type: 'photo', side: 'recv', icon: '\uD83D\uDCCE', label: 'GB_Hiking_Notice.jpg', caption: 'Original document', time: '6:10 pm' }
+    ],
+
+    spell: [
+      { type: 'photo', side: 'sent', icon: '\uD83D\uDCDD', label: 'Spelling list.jpg', caption: '10 words for Emma', time: '4:05 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: 'Got it! Reply <b>DONE</b> to turn this into an audio test for Emma.', time: '4:05 pm' },
+      { type: 'text', side: 'sent', text: 'done', time: '4:06 pm' },
+      { type: 'typing' },
+      { type: 'voice', side: 'recv', length: '2:14', time: '4:06 pm' },
+      { type: 'photo', side: 'sent', icon: '\u270D\uFE0F', label: "Emma's answers.jpg", caption: 'MARK', time: '4:32 pm' },
+      { type: 'typing' },
+      { type: 'text', side: 'recv', text: '9/10 correct! Item 4 \u2014 "recieve" should be "receive". Nice work, Emma! \uD83C\uDF89', time: '4:32 pm' }
     ],
 
     voice: [
