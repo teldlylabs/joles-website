@@ -218,25 +218,26 @@ h2 {
 
 /* ---------- Hero callout (new-feature banner) ---------- */
 .spell-callout {
-  display: flex; align-items: center; gap: 18px;
-  background: var(--green); border-radius: var(--radius-md);
+  display: flex; align-items: center; gap: 20px;
+  background: var(--wa-green); border-radius: var(--radius-md);
   padding: 22px 28px; margin: 8px 0 44px; text-decoration: none;
-  box-shadow: 0 10px 30px rgba(18, 140, 74, 0.25);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.35);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.spell-callout:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(18, 140, 74, 0.32); }
+.spell-callout:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(37, 211, 102, 0.45); }
 .spell-callout-badge {
-  flex-shrink: 0; font-family: var(--display); font-weight: 700; font-size: 14px;
-  color: #0e6f3b; background: var(--butter); padding: 6px 14px; border-radius: 999px;
+  flex-shrink: 0; font-family: var(--display); font-weight: 700;
+  font-size: clamp(28px, 3.4vw, 36px); letter-spacing: -0.5px; color: #073d24;
 }
 .spell-callout-text {
-  font-family: var(--display); font-weight: 600; color: #fff;
+  font-family: var(--display); font-weight: 600; color: #073d24;
   font-size: 24px; line-height: 1.3;
 }
 .spell-callout-text strong { font-weight: 700; }
-.spell-callout-arrow { margin-left: auto; color: #fff; font-weight: 700; font-size: 22px; flex-shrink: 0; }
+.spell-callout-arrow { margin-left: auto; color: #073d24; font-weight: 700; font-size: 22px; flex-shrink: 0; }
 @media (max-width: 640px) {
   .spell-callout { flex-wrap: wrap; padding: 18px 20px; }
+  .spell-callout-badge { font-size: 26px; }
   .spell-callout-text { font-size: 19px; }
   .spell-callout-arrow { display: none; }
 }
@@ -454,7 +455,7 @@ footer a:hover { color: var(--ink); }
 
 <div class="wrap">
   <a href="#spell" class="spell-callout">
-    <span class="spell-callout-badge">New</span>
+    <span class="spell-callout-badge">New!</span>
     <span class="spell-callout-text"><strong>Joles Spell &amp; 听写</strong> — snap a spelling list, get back an audio test, and let Joles mark the answers too.</span>
     <span class="spell-callout-arrow">→</span>
   </a>
