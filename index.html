@@ -315,6 +315,12 @@ h2 {
   display: inline-block; font-size: 13px; font-weight: 700; color: var(--ink-soft);
   background: #eee; padding: 3px 10px; border-radius: 999px; margin-left: 4px;
 }
+.soon-banner {
+  display: flex; width: max-content; align-items: center; gap: 8px;
+  font-family: var(--display); font-weight: 700; font-size: 18px; letter-spacing: 0.02em;
+  color: var(--green-dark); background: var(--white); border: 2px solid var(--green);
+  padding: 8px 18px; border-radius: 999px; margin-bottom: 18px;
+}
 .pricing-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 820px; margin: 0 auto;
 }
@@ -650,8 +656,9 @@ footer a:hover { color: var(--ink); }
   <!-- 7. Joles Spell — coming soon -->
   <div class="feature tint-blush" id="spell" style="opacity:0.88;">
     <div class="feature-copy">
+      <div class="soon-banner">🔜 Coming soon</div>
       <span class="feature-eyebrow">Spelling &amp; 听写 Practice</span>
-      <h3>Homework help, right in the chat. <span class="soon-badge">Coming soon</span></h3>
+      <h3>Homework help, right in the chat.</h3>
       <p>Snap a photo of your child's spelling or 听写 word list, and Joles sends back a voice recording to test them — no app, no setup, just tap play.</p>
       <p>We're still polishing this one before it's ready for everyone — join the trial and we'll let you know the moment it's live.</p>
     </div>
@@ -1027,7 +1034,7 @@ joles.link/cal/…</div>
     } else {
       priceMain.textContent = 'S$7.90';
       periodMain.textContent = '/ month';
-      noteMain.textContent = '\u00A0';
+      noteMain.textContent = 'Less than 30 cents a day for the whole family';
     }
   }
 
